@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:id="@+id/containerMainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/work_white">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/work_white"
+            tools:context=".MainActivity">
+
+            <ImageButton
+                android:id="@+id/MstartButton"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="48dp"
+                android:background="@drawable/selector_circle_main_m"
+                android:src="@drawable/small_net_m_icon" />
+
+            <TextView
+                android:id="@+id/loadLine"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_centerInParent="true"
+                android:layout_toRightOf="@id/MstartButton"
+                android:background="#000000"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/drawerMainActivity"
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@color/work_blue"
+        android:visibility="gone" />
+
+    <com.redgrue.pm.keyboard.NumbKeyboard
+        android:id="@+id/keyboard_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"/>
+
+
+    <!--<fragment-->
+    <!---->
+    <!--android:id="@+id/drawerMainActivity"-->
+    <!--android:name="com.redgrue.pm.fragments.StartMemoryDrawerFragment"-->
+    <!--android:layout_width="180dp"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_gravity="end"-->
+    <!--tools:layout="@layout/fragment_start_memory" />-->
+
+</RelativeLayout>

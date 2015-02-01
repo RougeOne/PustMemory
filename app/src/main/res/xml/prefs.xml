@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:dialogMessage="Введите число"
+        android:inputType="number"
+        android:key="editText"
+        android:title="Количество элементов по умолчанию"
+        android:summary="Значение используется для быстрой загрузки"/>
+
+</PreferenceScreen>

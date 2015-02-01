@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item
+        android:actionLayout="@layout/answer_menu_button"
+        android:id="@+id/actionCheckResult"
+        android:title="@string/item_check_result"
+        app:showAsAction="always" />
+</menu>

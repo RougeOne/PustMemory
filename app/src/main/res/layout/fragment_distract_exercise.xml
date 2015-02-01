@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/exerciseLineContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/mathEquationStringFirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:textColor="@color/work_dark"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                tools:text="69 + 96 =" />
+
+            <EditText
+                android:id="@+id/equationAnswerFirst"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/exercise_block"
+                android:ems="2"
+                android:inputType="number"
+                android:padding="4dp"
+                android:textSize="28sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/mathEquationStringSecond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:textColor="@color/work_dark"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                tools:text="69 + 96 =" />
+
+            <EditText
+                android:id="@+id/equationAnswerSecond"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/exercise_block"
+                android:ems="2"
+                android:inputType="number"
+                android:padding="4dp"
+                android:textSize="28sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/mathEquationStringThird"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:textColor="@color/work_dark"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                tools:text="69 + 96 =" />
+
+            <EditText
+                android:id="@+id/equationAnswerThird"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/exercise_block"
+                android:ems="2"
+                android:inputType="number"
+                android:padding="4dp"
+                android:textSize="28sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/mathEquationStringFourth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:textColor="@color/work_dark"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                tools:text="69 + 96 =" />
+
+            <EditText
+                android:id="@+id/equationAnswerFourth"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/exercise_block"
+                android:ems="2"
+                android:inputType="number"
+                android:padding="4dp"
+                android:textSize="28sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="2dp"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/mathEquationStringFifth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:textColor="@color/work_dark"
+                android:textSize="36sp"
+                android:textStyle="bold"
+                tools:text="69 + 96 =" />
+
+            <EditText
+                android:id="@+id/equationAnswerFifth"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/exercise_block"
+                android:ems="2"
+                android:inputType="number"
+                android:padding="4dp"
+                android:textSize="28sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/checkUsersEquationAnswers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        android:background="@drawable/selector_input_numb"
+        android:text="Проверить"
+        android:textStyle="bold" />
+</RelativeLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="180dp"
+    android:layout_height="match_parent"
+    android:background="@color/work_blue">
+
+        <ImageButton
+            android:id="@+id/MstartButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="48dp"
+            android:background="@drawable/selector_circle_start_m"
+            android:src="@drawable/small_net_m_icon" />
+
+        <TextView
+            android:id="@+id/loadLineDrawer"
+            android:layout_width="48dp"
+            android:layout_height="4dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="#000000"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/setElementsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="4dp"
+            android:background="@drawable/rectangle_white"
+            android:hint="Кол-во элементов"
+            android:inputType="number"
+            android:maxLength="4"
+            android:padding="4dp"
+            android:textColor="@color/work_blue"
+            android:textSize="16sp" />
+
+
+
+        <RadioGroup
+            android:id="@+id/memoryTypeRadioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/setElementsView"
+            android:checkedButton="@+id/twoNumbs"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/twotNumbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00-99"
+                android:textColor="@color/work_white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/threeNumbs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000-999"
+                android:textColor="@color/work_white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/Cards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Карты"
+                android:textColor="@color/work_white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/memoryTypeRadioGroup"
+        android:layout_marginTop="4dp"
+        android:text="Не повторять элементы"
+        android:textColor="@color/work_white"
+        android:textSize="12sp"
+        android:textStyle="italic" />
+
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/change_numb"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/ShowNumbView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/work_dark_blue"
+        android:textSize="192sp"
+        android:textStyle="bold"
+        tools:text="64" />
+
+    <ImageButton
+        android:contentDescription="@string/circleButton"
+        android:id="@+id/ButtonNextNumb"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/selector_circle_change_numb" />
+</RelativeLayout>

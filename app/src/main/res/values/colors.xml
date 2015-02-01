@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="work_dark_blue">#3C3B5A</color>
+    <color name="work_white">#ffffff</color>
+    <color name="work_blue">#467FD7</color>
+
+    <color name="work_dark">#ff141414</color>
+    <color name="change_numb">#ffe3e3e3</color>
+
+
+
+</resources>
