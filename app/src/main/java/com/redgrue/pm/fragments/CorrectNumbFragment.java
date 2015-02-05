@@ -1,7 +1,9 @@
 package com.redgrue.pm.fragments;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,8 @@ import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
 import com.redgrue.pm.event.ShowCorrectAnswersEvent;
 
+import java.util.ArrayList;
+
 /**
  * Created by rouge on 19.01.2015.
  */
@@ -19,13 +23,15 @@ public class CorrectNumbFragment extends Fragment {
     private static final String Log_TAG = CorrectNumbFragment.class.getSimpleName();
     private TextView textView;
     private short counter;
-    private final String[] arrayCorrectAnswers;
+    private final ArrayList<String> arrayCorrectAnswers;
 
 
-    public CorrectNumbFragment(String[] container) {
+    public CorrectNumbFragment(ArrayList<String> container) {
         arrayCorrectAnswers = container;
         counter = 0;
     }
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -48,8 +54,8 @@ public class CorrectNumbFragment extends Fragment {
     }
 
     private void setNumb() {
-        if (counter < arrayCorrectAnswers.length)
-            textView.setText(arrayCorrectAnswers[counter++]);
+        if (counter < arrayCorrectAnswers.size())
+            textView.setText(arrayCorrectAnswers.get(counter++));
         else
             AppMnemoNet.getInstance().getBus().post(new ShowCorrectAnswersEvent());
     }

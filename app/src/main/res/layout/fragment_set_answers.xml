@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/work_white"
+    android:windowSoftInputMode="adjustUnspecified">
+
+    <Button
+        android:layout_alignParentBottom="true"
+        android:id="@+id/addUsersAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_input_numb"
+        android:text="Добавить"
+        android:textColor="@color/work_white"
+        android:textStyle="bold" />
+    <EditText
+        android:layout_above="@+id/addUsersAnswer"
+        android:textSize="40sp"
+        android:id="@+id/usersAnswerEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_container"
+        android:gravity="center_horizontal|bottom"
+        android:hint="Число"
+        android:inputType="number"
+        android:maxLength="3" />
+
+    <GridView
+        android:id="@+id/AnswersGridView"
+        android:layout_width="wrap_content"
+        android:layout_height="128dp"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/usersAnswerEditText"
+        android:columnWidth="80dp"
+        android:gravity="center_horizontal"
+        android:numColumns="auto_fit"
+        android:stretchMode="spacingWidth"
+        android:verticalSpacing="2dp"/>
+
+</RelativeLayout>

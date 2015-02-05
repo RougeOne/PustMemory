@@ -24,7 +24,7 @@
             android:visibility="visible" />
 
         <EditText
-            android:id="@+id/setElementsView"
+            android:id="@+id/setElementsAmountEditView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -32,6 +32,7 @@
             android:background="@drawable/rectangle_white"
             android:hint="Кол-во элементов"
             android:inputType="number"
+            android:gravity="center_horizontal"
             android:maxLength="4"
             android:padding="4dp"
             android:textColor="@color/work_blue"
@@ -43,12 +44,13 @@
             android:id="@+id/memoryTypeRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/setElementsView"
+            android:layout_below="@+id/setElementsAmountEditView"
             android:checkedButton="@+id/twoNumbs"
             android:orientation="vertical">
 
             <RadioButton
-                android:id="@+id/twotNumbs"
+                android:checked="true"
+                android:id="@+id/twoNumbs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00-99"
@@ -66,13 +68,40 @@
                 android:textStyle="bold" />
 
             <RadioButton
-                android:id="@+id/Cards"
+            android:id="@+id/Cards"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/playing_card_rb"
+            android:textColor="@color/work_white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/Voice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Карты"
+                android:text="@string/voice_rb"
                 android:textColor="@color/work_white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/Faces"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Лица"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textSize="16sp"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/ForeignLanguages"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Ин. языки"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textSize="16sp"-->
+                <!--android:textStyle="bold" />-->
         </RadioGroup>
 
     <CheckBox
@@ -80,7 +109,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/memoryTypeRadioGroup"
         android:layout_marginTop="4dp"
-        android:text="Не повторять элементы"
+        android:text="@string/not_repeated_elements"
         android:textColor="@color/work_white"
         android:textSize="12sp"
         android:textStyle="italic" />

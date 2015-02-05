@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <FrameLayout
-        android:id="@+id/containerMainActivity"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/work_white">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -36,8 +29,36 @@
                 android:background="#000000"
                 android:visibility="invisible" />
         </RelativeLayout>
-    </FrameLayout>
 
+
+    <RelativeLayout
+        android:id="@+id/galaxyContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#00ffffff">
+
+        <ImageView
+            android:id="@+id/little_point_to_clone"
+            android:layout_margin="48dp"
+            android:src="@drawable/circle_dark_blue"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:layout_margin="48dp"
+            android:src="@drawable/circle_dark_blue"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_margin="48dp"
+            android:src="@drawable/circle_dark_blue"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/drawerMainActivity"
@@ -45,23 +66,14 @@
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:background="@color/work_blue"
-        android:visibility="gone" />
+        android:visibility="invisible" />
 
-    <com.redgrue.pm.keyboard.NumbKeyboard
-        android:id="@+id/keyboard_view"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:visibility="gone"/>
+    <!--<com.redgrue.pm.keyboard.NumbKeyboard-->
+        <!--android:id="@+id/keyboard_view"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:visibility="gone"/>-->
 
-
-    <!--<fragment-->
-    <!---->
-    <!--android:id="@+id/drawerMainActivity"-->
-    <!--android:name="com.redgrue.pm.fragments.StartMemoryDrawerFragment"-->
-    <!--android:layout_width="180dp"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_gravity="end"-->
-    <!--tools:layout="@layout/fragment_start_memory" />-->
 
 </RelativeLayout>

@@ -19,18 +19,20 @@ public class AdapterFillNumb extends ArrayAdapter<String> {
     private static final String Log_TAG = AdapterFillNumb.class.getSimpleName();
     private final LayoutInflater mLayoutInflater;
     private final int mLayoutResId;
-    private boolean isCorrect = false;
-    private ArrayList<String> mCorrectAnswers;
+    private ArrayList<String> mCorrectAnswersArray;
+    private ArrayList<String> mUserAnswersArray;
+    private boolean checkResult = false;
 
-    public AdapterFillNumb(Context context, int resource, ArrayList<String> userAnswers, ArrayList<String> correctAnswers) {
-        super(context, resource, userAnswers);
+    public AdapterFillNumb(Context context, int resource, ArrayList<String> objects) {
+        super(context, resource, objects);
         mLayoutInflater = LayoutInflater.from(context);
         mLayoutResId = resource;
-        mCorrectAnswers = correctAnswers;
     }
 
-    public void correctAnswers(boolean isCorrect) {
-        this.isCorrect = isCorrect;
+    public void checkResults(ArrayList<String> correctAnswersArray, boolean isCheckable) {
+        checkResult = isCheckable;
+        mCorrectAnswersArray = correctAnswersArray;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -49,16 +51,15 @@ public class AdapterFillNumb extends ArrayAdapter<String> {
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-
         String userAnswer = getItem(position);
-        String correctAnswers = mCorrectAnswers.get(position);
 
         viewHolder.numerationView.setText(String.format("%02d.", position + 1));
         viewHolder.answerView.setText(userAnswer);
-        viewHolder.correctAnswersView.setText(correctAnswers);
-        if(isCorrect) {
+        if (checkResult) {
+            String correctAnswers = mCorrectAnswersArray.get(position);
+            viewHolder.correctAnswersView.setText(correctAnswers);
             viewHolder.correctAnswersView.setVisibility(View.VISIBLE);
-            if (!mCorrectAnswers.get(position).equals(getItem(position))) {
+            if (!correctAnswers.equals(userAnswer)) {
                 viewHolder.answerView.setBackgroundColor(0x77FF0000);
             }
         }
