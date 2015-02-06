@@ -1,7 +1,6 @@
 package com.redgrue.pm.fragments;
 
 import android.app.Fragment;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,8 +12,8 @@ import android.widget.Toast;
 
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
-import com.redgrue.pm.event.ElementsAmountEvent;
-import com.redgrue.pm.keyboard.NumbKeyboard;
+import com.redgrue.pm.container.MemoryAnswersContainer;
+import com.redgrue.pm.event.ElementTypeEvent;
 
 /**
  * Created by rouge on 01.02.2015.
@@ -22,12 +21,8 @@ import com.redgrue.pm.keyboard.NumbKeyboard;
 public class ChooseMemoryDrawerFragment extends Fragment implements RadioGroup.OnCheckedChangeListener {
 
     private static final String Log_TAG = ChooseMemoryDrawerFragment.class.getSimpleName();
-    private View mTargetView;
     private int defaultElemenets;
-
-    private NumbKeyboard mKeyboardView;
-    private Keyboard mKeyboard;
-
+    private String memoryType;
 
     public ChooseMemoryDrawerFragment() {
         defaultElemenets = 20;
@@ -54,8 +49,9 @@ public class ChooseMemoryDrawerFragment extends Fragment implements RadioGroup.O
 
         final RadioGroup chooseMemoryType = (RadioGroup) view.findViewById(R.id.memoryTypeRadioGroup);
         chooseMemoryType.setOnCheckedChangeListener(this);
+        memoryType = MemoryAnswersContainer.TYPE_NUMBS_TWO;
         // Create Custom Numb Keyboard and and(view) to activity
-      /*  mKeyboard = new Keyboard(getActivity(), R.xml.keyboard);
+        /*mKeyboard = new Keyboard(getActivity(), R.xml.keyboard);
         mKeyboardView = (NumbKeyboard) getActivity().findViewById(R.id.keyboard_view);
         mKeyboardView.setKeyboard(mKeyboard);
         mKeyboardView.setOnKeyboardActionListener(new NumbKeyboardListener(
@@ -69,14 +65,13 @@ public class ChooseMemoryDrawerFragment extends Fragment implements RadioGroup.O
             }
         });*/
 
-
         final EditText elementEditText = (EditText) view.findViewById(R.id.setElementsAmountEditView);
         view.findViewById(R.id.MstartButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!elementEditText.getText().toString().isEmpty()) {
                     Short elementsAmount = Short.parseShort(elementEditText.getText().toString());
-                    AppMnemoNet.getInstance().getBus().post(new ElementsAmountEvent(elementsAmount));
+                    AppMnemoNet.getInstance().getBus().post(new ElementTypeEvent(elementsAmount, memoryType));
                 } else {
                     Toast.makeText(getActivity(), "Укажите число элементов", Toast.LENGTH_SHORT).show();
                 }
@@ -88,15 +83,27 @@ public class ChooseMemoryDrawerFragment extends Fragment implements RadioGroup.O
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch(group.getCheckedRadioButtonId()) {
+        switch (group.getCheckedRadioButtonId()) {
             case (R.id.twoNumbs): {
-                Log.d(Log_TAG, "twoNubs");
+                memoryType = MemoryAnswersContainer.TYPE_NUMBS_TWO;
+                Log.d(Log_TAG, "Type " + memoryType);
                 break;
             }
             case (R.id.threeNumbs): {
-                Log.d(Log_TAG, "threeNumbs");
+                memoryType = MemoryAnswersContainer.TYPE_NUMBS_THREE;
+                Log.d(Log_TAG, "Type " + memoryType);
                 break;
             }
+//            case (R.id.Cards): {
+//                memoryType = MemoryAnswersContainer.TYPE_CARDS;
+//                Log.d(Log_TAG, "Type " + memoryType);
+//                break;
+//            }
+//            case (R.id.Voice): {
+//                memoryType = MemoryAnswersContainer.TYPE_VOICE;
+//                Log.d(Log_TAG, "Type " + memoryType);
+//                break;
+//            }
             default: {
                 Log.e(Log_TAG, "default onClickListener was implemented");
             }

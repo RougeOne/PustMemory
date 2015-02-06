@@ -5,69 +5,93 @@
     android:layout_height="match_parent"
     android:background="@color/work_blue">
 
-        <ImageButton
-            android:id="@+id/MstartButton"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="48dp"
-            android:background="@drawable/selector_circle_start_m"
-            android:src="@drawable/small_net_m_icon" />
+    <ImageButton
+        android:id="@+id/MstartButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="48dp"
+        android:background="@drawable/selector_circle_start_m"
+        android:src="@drawable/small_net_m_icon" />
 
-        <TextView
-            android:id="@+id/loadLineDrawer"
-            android:layout_width="48dp"
-            android:layout_height="4dp"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:background="#000000"
-            android:visibility="visible" />
+    <TextView
+        android:id="@+id/loadLineDrawer"
+        android:layout_width="48dp"
+        android:layout_height="4dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="#000000"
+        android:visibility="visible" />
 
-        <EditText
-            android:id="@+id/setElementsAmountEditView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_margin="4dp"
-            android:background="@drawable/rectangle_white"
-            android:hint="Кол-во элементов"
-            android:inputType="number"
-            android:gravity="center_horizontal"
-            android:maxLength="4"
-            android:padding="4dp"
-            android:textColor="@color/work_blue"
-            android:textSize="16sp" />
+    <EditText
+        android:id="@+id/setElementsAmountEditView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="4dp"
+        android:background="@drawable/rectangle_white"
+        android:gravity="center_horizontal"
+        android:hint="Кол-во элементов"
+        android:inputType="number"
+        android:maxLength="4"
+        android:padding="4dp"
+        android:textColor="@color/work_blue"
+        android:textSize="12sp" />
+
+    <CheckBox
+        android:id="@+id/allowTimeCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setElementsAmountEditView"
+        android:checked="true" />
+
+    <EditText
+        android:id="@+id/setElementsShowTimeEditView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/allowTimeCheckBox"
+        android:layout_below="@+id/setElementsAmountEditView"
+        android:layout_toRightOf="@+id/allowTimeCheckBox"
+        android:background="@drawable/rectangle_white"
+        android:gravity="center_horizontal"
+        android:hint="Время на элемент, мс"
+        android:inputType="number"
+        android:maxLength="4"
+        android:padding="4dp"
+        android:textColor="@color/work_blue"
+        android:textSize="12sp" />
 
 
+    <RadioGroup
+        android:layout_gravity="right"
+        android:inputType="number"
+        android:id="@+id/memoryTypeRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/allowTimeCheckBox"
+        android:checkedButton="@+id/twoNumbs"
+        android:orientation="vertical">
 
-        <RadioGroup
-            android:id="@+id/memoryTypeRadioGroup"
+        <RadioButton
+            android:id="@+id/twoNumbs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/setElementsAmountEditView"
-            android:checkedButton="@+id/twoNumbs"
-            android:orientation="vertical">
+            android:checked="true"
+            android:text="00-99"
+            android:textColor="@color/work_white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <RadioButton
-                android:checked="true"
-                android:id="@+id/twoNumbs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00-99"
-                android:textColor="@color/work_white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+        <RadioButton
+            android:id="@+id/threeNumbs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="000-999"
+            android:textColor="@color/work_white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/threeNumbs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="000-999"
-                android:textColor="@color/work_white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <RadioButton
+        <RadioButton
             android:id="@+id/Cards"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,33 +100,15 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/Voice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/voice_rb"
-                android:textColor="@color/work_white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <!--<RadioButton-->
-                <!--android:id="@+id/Faces"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Лица"-->
-                <!--android:textColor="@color/work_white"-->
-                <!--android:textSize="16sp"-->
-                <!--android:textStyle="bold" />-->
-
-            <!--<RadioButton-->
-                <!--android:id="@+id/ForeignLanguages"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Ин. языки"-->
-                <!--android:textColor="@color/work_white"-->
-                <!--android:textSize="16sp"-->
-                <!--android:textStyle="bold" />-->
-        </RadioGroup>
+        <RadioButton
+            android:id="@+id/Voice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/voice_rb"
+            android:textColor="@color/work_white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RadioGroup>
 
     <CheckBox
         android:layout_width="wrap_content"

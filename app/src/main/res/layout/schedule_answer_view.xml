@@ -19,8 +19,8 @@
         android:id="@+id/adapterTextNumeration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
         android:textSize="12sp"
+        android:layout_marginLeft="4dp"
         android:textStyle="italic"
         tools:text="01." />
 
@@ -32,7 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/showNumbButton"
         android:layout_alignRight="@+id/showNumbButton"
-        android:layout_marginBottom="4dp"
         android:layout_marginRight="4dp"
         android:textSize="14sp"
         android:textStyle="bold"

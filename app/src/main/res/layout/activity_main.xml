@@ -62,18 +62,13 @@
 
     <FrameLayout
         android:id="@+id/drawerMainActivity"
-        android:layout_width="180dp"
+        android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:background="@color/work_blue"
         android:visibility="invisible" />
 
-    <!--<com.redgrue.pm.keyboard.NumbKeyboard-->
-        <!--android:id="@+id/keyboard_view"-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:visibility="gone"/>-->
+
 
 
 </RelativeLayout>

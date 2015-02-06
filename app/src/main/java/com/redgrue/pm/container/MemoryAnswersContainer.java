@@ -6,47 +6,48 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by rouge on 29.01.2015.
- */
+
 public class MemoryAnswersContainer implements Serializable {
 
-    public final static String twoNumbs = "TWO_NUMBS";
-    public final static String threeNumbs = "THREE_NUMBS";
-    public final static String cards = "CARDS";
+    // Class that create random elements relating the type(numbers, letters or cards and photos)
 
 
-    private int mAmountMistakes;
+    public static final String TYPE_NUMBS_TWO = "TYPE_NUMBS_TWO";
+    public static final String TYPE_NUMBS_THREE = "TYPE_THREE_NUMBS";
+    public static final String TYPE_CARDS = "TYPE_CARDS";
+    public static final String TYPE_VOICE_NUMBS = "TYPE_VOICE_NUMBS";
 
-    private short mAmountElements;
+
+    private int mAmountMistakes = 0;
+    private final short mAmountElements;
+
     private ArrayList<String> correctAnswersArray;
+    private ArrayList<Long> timeShowAnswers;
     private ArrayList<String> usersAnswersArray;
 
-    private ArrayList<String> timeShowAnswers;
-
-    public MemoryAnswersContainer(short amountElements) {
-        mAmountMistakes = 0;
+    public MemoryAnswersContainer(short amountElements, String type) {
         mAmountElements = amountElements;
-        randomTwoNumbCollections(amountElements);
-//        switch(type) {
-//            case twoNumbs: {
-//                randomTwoNumbCollections(amountElements);
-//                break;
-//            }
-//            case threeNumbs: {
-//                randomThreeNumbCollections(amountElements);
-//                break;
-//            }
-//            case cards: {
-//                randomCardsCollections(amountElements);
-//                break;
-//            }
-//        }
+        timeShowAnswers = new ArrayList<>(amountElements);
+        switch (type) {
+            case TYPE_NUMBS_TWO: {
+                randomTwoNumbCollections(amountElements);
+                break;
+            }
+            case TYPE_NUMBS_THREE: {
+                randomThreeNumbCollections(amountElements);
+                break;
+            }
+            case TYPE_CARDS: {
+                randomCardsCollections(amountElements);
+                break;
+            }
+        }
     }
 
-    public int checkMistakes() {
+    private int checkMistakes() {
+        int mist = 0;
         for (int i = 0; i < correctAnswersArray.size(); i++) {
-            if(correctAnswersArray.get(i) != usersAnswersArray.get(i))
+            if (correctAnswersArray.get(i) != usersAnswersArray.get(i))
                 mAmountMistakes++;
         }
         return mAmountMistakes;
@@ -68,7 +69,7 @@ public class MemoryAnswersContainer implements Serializable {
         correctAnswersArray = new ArrayList<>(amountElements);
         usersAnswersArray = new ArrayList<>(amountElements);
         for (int i = 0; i < amountElements; i++) {
-            correctAnswersArray.add(String.format("%03d", random.nextInt(100)));
+            correctAnswersArray.add(String.format("%03d", random.nextInt(1000)));
         }
         Log.d("CorrectAnswers", "Answers = " + correctAnswersArray.size());
 
@@ -78,21 +79,14 @@ public class MemoryAnswersContainer implements Serializable {
 
     }
 
+    // Get amount of Mistakes
     public int getAmountMistakes() {
         return mAmountMistakes;
     }
 
-    public void setAmountMistakes(int mAmountMistakes) {
-        this.mAmountMistakes = mAmountMistakes;
-    }
-
-    // Get/Set amount of Elements
+    // Get amount of Elements
     public short getmAmountElements() {
         return mAmountElements;
-    }
-
-    public void setmAmountElements(short amountElements) {
-        mAmountElements = amountElements;
     }
 
     // Get/Set correct answers array
@@ -114,11 +108,11 @@ public class MemoryAnswersContainer implements Serializable {
     }
 
     // Get/Set user's answers time array
-    public ArrayList<String> getTimeShowAnswers() {
+    public ArrayList<Long> getTimeShowAnswers() {
         return timeShowAnswers;
     }
 
-    public void setTimeShowAnswers(ArrayList<String> timeShowAnswers) {
+    public void setTimeShowAnswers(ArrayList<Long> timeShowAnswers) {
         this.timeShowAnswers = timeShowAnswers;
     }
 }

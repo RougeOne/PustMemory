@@ -13,7 +13,7 @@ import com.redgrue.pm.event.ShowCorrectAnswersEvent;
 import com.redgrue.pm.fragments.StatisticsDrawerFragment;
 import com.redgrue.pm.fragments.UsersAnswersFragment;
 import com.redgrue.pm.fragments.DistractExerciseFragment;
-import com.redgrue.pm.fragments.CorrectNumbFragment;
+import com.redgrue.pm.fragments.ShowCorrectNumbFragment;
 import com.redgrue.pm.container.MemoryAnswersContainer;
 import com.squareup.otto.Subscribe;
 
@@ -47,15 +47,19 @@ public class StartMemoryActivity extends ActionBarActivity implements Statistics
                 (DrawerLayout) findViewById(R.id.statisticsDrawerLayout));
         final Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            if (extras.containsKey(MainActivity.EXTRA_AMOUNT_ELEMENTS))
-                memoryAnswersContainer = new MemoryAnswersContainer(getIntent().getShortExtra(MainActivity.EXTRA_AMOUNT_ELEMENTS, (short) 0));
+            if (extras.containsKey(MainActivity.EXTRA_KEY_AMOUNT_ELEMENTS)) {
+                short amountOfElements = getIntent().getShortExtra(MainActivity.EXTRA_KEY_AMOUNT_ELEMENTS, (short) 0);
+                String typeMemory = getIntent().getStringExtra(MainActivity.EXTRA_KEY_MEMORY_TYPE);
+                memoryAnswersContainer = new MemoryAnswersContainer(amountOfElements, typeMemory);
+            }
         }
+
         mDrawerLayout = (DrawerLayout) findViewById(R.id.statisticsDrawerLayout);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.containerStartMemoryActivity, new CorrectNumbFragment(memoryAnswersContainer.getCorrectAnswersArray()))
+                .replace(R.id.containerStartMemoryActivity, new ShowCorrectNumbFragment(memoryAnswersContainer))
                 .commit();
         Log.i(Log_TAG, "onCreate");
     }

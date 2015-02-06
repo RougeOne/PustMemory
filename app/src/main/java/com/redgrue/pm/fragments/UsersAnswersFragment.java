@@ -2,6 +2,7 @@ package com.redgrue.pm.fragments;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -17,34 +18,34 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
 import com.redgrue.pm.adapters.AdapterFillNumb;
-import com.redgrue.pm.event.ShowDistractExerciseEvent;
 import com.redgrue.pm.container.MemoryAnswersContainer;
 
 import java.util.ArrayList;
 
-/**
- * Created by rouge on 31.01.2015.
- */
 public class UsersAnswersFragment extends Fragment {
 
     private static final String Log_TAG = UsersAnswersFragment.class.getSimpleName();
 
-    private String emptyAnswer = "∞";
+    private final String emptyAnswer = "∞";
     private int counter;
+    private int maxAnswerSize;
     private ArrayList<String> usersAnswersArray;
     private final ArrayList<String> correctAnswersArray;
-    private MemoryAnswersContainer mMemoryAnswersContainer;
     private AdapterFillNumb mAdapterFillNumb;
     private GridView usersAnswersGridView;
 
+    private boolean isAnswerCompareCheck;
+
     public UsersAnswersFragment(MemoryAnswersContainer memoryAnswersContainer) {
-        counter = 0;
-        mMemoryAnswersContainer = memoryAnswersContainer;
+
+        MemoryAnswersContainer mMemoryAnswersContainer = memoryAnswersContainer;
         usersAnswersArray = mMemoryAnswersContainer.getUsersAnswersArray();
         correctAnswersArray = mMemoryAnswersContainer.getCorrectAnswersArray();
+
+        counter = 0;
+        maxAnswerSize = correctAnswersArray.size();
     }
 
     @Override
@@ -60,15 +61,19 @@ public class UsersAnswersFragment extends Fragment {
         Log.w(Log_TAG, "onCreateView");
         final View view = inflater.inflate(R.layout.fragment_set_answers, container, false);
         final EditText userAnswerEditText = (EditText) view.findViewById(R.id.usersAnswerEditText);
+
         usersAnswersGridView = (GridView) view.findViewById(R.id.AnswersGridView);
         mAdapterFillNumb = new AdapterFillNumb(getActivity(), R.layout.schedule_answer_view, usersAnswersArray);
         usersAnswersGridView.setAdapter(mAdapterFillNumb);
         usersAnswersGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                correctNumbDialog();
+                if (!isAnswerCompareCheck)
+                    correctNumbDialog(position);
             }
         });
+
+
         view.findViewById(R.id.addUsersAnswer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,8 +84,11 @@ public class UsersAnswersFragment extends Fragment {
                 addAnswers(usersAnswer);
             }
         });
+
+
         return view;
     }
+
 
     private boolean addAnswers(String answer) {
         if (counter++ < correctAnswersArray.size()) {
@@ -93,8 +101,16 @@ public class UsersAnswersFragment extends Fragment {
         return true;
     }
 
+    private boolean isCorrectAnswers(int position, String correctedAnswer) {
+        usersAnswersArray.set(position, correctedAnswer);
+        Log.d(Log_TAG, "Answers " + correctedAnswer + " Position " + position);
+        Log.d(Log_TAG, "Get position " + usersAnswersArray.get(position));
+        mAdapterFillNumb.notifyDataSetChanged();
+        return true;
+    }
+
     private void isInterrupted() {
-        while(counter++ < correctAnswersArray.size()) {
+        while (counter++ < correctAnswersArray.size()) {
             usersAnswersArray.add(emptyAnswer);
         }
     }
@@ -109,8 +125,10 @@ public class UsersAnswersFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.actionCheckResult): {
-                isInterrupted();
+                if (counter < maxAnswerSize)
+                    isInterrupted();
                 mAdapterFillNumb.checkResults(correctAnswersArray, true);
+                isAnswerCompareCheck = true;
                 break;
             }
             default: {
@@ -120,15 +138,31 @@ public class UsersAnswersFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-    private void correctNumbDialog() {
-        final AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-        dialog.setTitle("Some title")
-                .setMessage("Some message")
-                .setIcon(R.drawable.ic_launcher);
+    private void correctNumbDialog(final int position) {
+        LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
+        final View messageView = layoutInflater.inflate(R.layout.dialog_correct_numb, null);
 
+        final EditText correctAnswerEditView = (EditText) messageView.findViewById(R.id.usersCorrectAnswers);
+        final AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+        dialog.setTitle("Позиция " + (position + 1))
+                .setView(messageView).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(final DialogInterface dialog, final int which) {
+                String correctedAnswer;
+                if (!TextUtils.isEmpty(correctAnswerEditView.getText().toString())) {
+                    correctedAnswer = correctAnswerEditView.getText().toString();
+                    isCorrectAnswers(position, correctedAnswer);
+                }
+                dialog.dismiss();
+            }
+        }).setNeutralButton("Отмена", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(final DialogInterface dialog, final int which) {
+                dialog.dismiss();
+            }
+        });
         final AlertDialog alert = dialog.create();
         alert.show();
-        ;
     }
 
 }
