@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/change_numb"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/showNumbMainBackground">
 
     <TextView
         android:id="@+id/ShowNumbView"
@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:textColor="@color/work_dark_blue"
+        android:textColor="@color/fb_text_main"
         android:textSize="192sp"
         android:textStyle="bold"
         tools:text="64" />

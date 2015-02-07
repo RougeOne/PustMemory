@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <EditTextPreference
-        android:dialogMessage="Введите число"
-        android:inputType="number"
-        android:key="editText"
-        android:title="Количество элементов по умолчанию"
-        android:summary="Значение используется для быстрой загрузки"/>
+
+
+
+    <PreferenceCategory
+        android:key="categ1"
+        android:summary="Description of category 1"
+        android:title="Category 1">
+
+        <EditTextPreference
+            android:dialogMessage="Some message"
+            android:dialogTitle="Input number"
+            android:inputType="number"
+            android:key="editText"
+            android:summary="Some text"
+            android:title="Text" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="categ2"
+        android:summary="Description of category 2"
+        android:title="Category 2">
+        <SwitchPreference
+            android:key="switch"
+            android:summary="Switch"
+            android:title="Switch" />
+
+    </PreferenceCategory>
+
+    <PreferenceScreen
+        android:key="screen"
+        android:summary="Description of screen"
+        android:title="Screen">
+
+        <PreferenceCategory
+            android:key="categ3"
+            android:summary="Description of category 3"
+            android:title="Category 3">
+
+        </PreferenceCategory>
+    </PreferenceScreen>
 
 </PreferenceScreen>

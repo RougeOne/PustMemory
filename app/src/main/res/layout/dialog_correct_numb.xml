@@ -9,7 +9,9 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal|bottom"
         android:hint="Число"
+        android:textColor="@color/fb_text_edit_text"
+        android:textColorHint="@color/fb_text_edit_hint"
         android:inputType="number"
         android:maxLength="3"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 </RelativeLayout>

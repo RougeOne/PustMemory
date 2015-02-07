@@ -4,182 +4,182 @@
     android:id="@+id/InputKeyboard"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_weight="10"
-            android:orientation="vertical">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="96dp"-->
+            <!--android:layout_marginBottom="2dp"-->
+            <!--android:layout_marginTop="2dp"-->
+            <!--android:layout_weight="10"-->
+            <!--android:orientation="vertical">-->
 
-            <Button
-                android:id="@+id/inputNumbOne"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="1"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbOne"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="1"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
 
-            <Button
-                android:id="@+id/inputNumbFour"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="4"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbFour"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="4"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
 
-            <Button
-                android:id="@+id/inputNumbSeven"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="7"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
-        </LinearLayout>
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbSeven"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="7"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_weight="10"
-            android:orientation="vertical">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="96dp"-->
+            <!--android:layout_marginBottom="2dp"-->
+            <!--android:layout_marginTop="2dp"-->
+            <!--android:layout_weight="10"-->
+            <!--android:orientation="vertical">-->
 
-            <Button
-                android:id="@+id/inputNumbTwo"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="2"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbTwo"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="2"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
 
-            <Button
-                android:id="@+id/inputNumbFive"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="5"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbFive"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="5"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
 
-            <Button
-                android:id="@+id/inputNumbEight"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="8"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_weight="10"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/inputNumbThree"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="3"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/inputNumbSix"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="6"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/inputNumbNine"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="9"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
-        </LinearLayout>
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbEight"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="8"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="96dp"
-            android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_weight="10"
-            android:orientation="vertical">
+        <!--</LinearLayout>-->
 
-            <Button
-                android:id="@+id/inputNumbZero"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="0"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="96dp"-->
+            <!--android:layout_marginBottom="2dp"-->
+            <!--android:layout_marginTop="2dp"-->
+            <!--android:layout_weight="10"-->
+            <!--android:orientation="vertical">-->
 
-            <Button
-                android:visibility="gone"
-                android:id="@+id/inputNumbTwoZeros"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
-                android:text="00"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbThree"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="3"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
 
-            <Button
-                android:id="@+id/inputNumbDelete"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="10"
-                android:background="@drawable/selector_input_numb"
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbSix"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="6"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
 
-                android:text="DEL"
-                android:textColor="@color/work_white"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbNine"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="9"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
+
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="96dp"-->
+            <!--android:layout_marginBottom="2dp"-->
+            <!--android:layout_marginTop="2dp"-->
+            <!--android:layout_weight="10"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbZero"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="0"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<Button-->
+                <!--android:visibility="gone"-->
+                <!--android:id="@+id/inputNumbTwoZeros"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+                <!--android:text="00"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/inputNumbDelete"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_marginRight="2dp"-->
+                <!--android:layout_weight="10"-->
+                <!--android:background="@drawable/selector_input_numb"-->
+
+                <!--android:text="DEL"-->
+                <!--android:textColor="@color/work_white"-->
+                <!--android:textStyle="bold" />-->
+        <!--</LinearLayout>-->
+    <!--</LinearLayout>-->
 </FrameLayout>

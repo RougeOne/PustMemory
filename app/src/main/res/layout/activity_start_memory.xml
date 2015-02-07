@@ -10,9 +10,10 @@
         android:id="@+id/containerStartMemoryActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/work_white" />
+        android:background="@color/fb_white" />
 
     <fragment
+        android:layout_margin="8dp"
         android:id="@+id/navigation_drawer"
         android:name="com.redgrue.pm.fragments.StatisticsDrawerFragment"
         android:layout_width="@dimen/navigation_drawer_width"

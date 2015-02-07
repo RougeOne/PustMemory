@@ -7,27 +7,11 @@ import java.util.Map;
  */
 public class ElementTypeEvent {
 
-    private short amountElements;
-    private String memoryType;
+    public short amountElements;
+    public String memoryType;
 
     public ElementTypeEvent(short amountElements, String memoryType) {
         this.amountElements = amountElements;
         this.memoryType = memoryType;
-    }
-
-    public void setAmountElements(short amountElements) {
-        this.amountElements = amountElements;
-    }
-
-    public String getMemoryType() {
-        return memoryType;
-    }
-
-    public void setMemoryType(String memoryType) {
-        this.memoryType = memoryType;
-    }
-
-    public short getAmountElements() {
-        return amountElements;
     }
 }

@@ -60,7 +60,7 @@ public class AdapterFillNumb extends ArrayAdapter<String> {
             viewHolder.correctAnswersView.setText(correctAnswers);
             viewHolder.correctAnswersView.setVisibility(View.VISIBLE);
             if (!correctAnswers.equals(userAnswer)) {
-                viewHolder.answerView.setBackgroundColor(0x77FF0000);
+                viewHolder.answerView.setBackgroundColor(getContext().getResources().getColor(R.color.fb_red));
             }
         }
         return convertView;

@@ -18,7 +18,8 @@ public class MemoryAnswersContainer implements Serializable {
     public static final String TYPE_VOICE_NUMBS = "TYPE_VOICE_NUMBS";
 
 
-    private int mAmountMistakes = 0;
+    private short mAmountMistakes = 0;
+    private long allShowTime;
     private final short mAmountElements;
 
     private ArrayList<String> correctAnswersArray;
@@ -44,8 +45,7 @@ public class MemoryAnswersContainer implements Serializable {
         }
     }
 
-    private int checkMistakes() {
-        int mist = 0;
+    public short checkMistakes() {
         for (int i = 0; i < correctAnswersArray.size(); i++) {
             if (correctAnswersArray.get(i) != usersAnswersArray.get(i))
                 mAmountMistakes++;
@@ -53,7 +53,14 @@ public class MemoryAnswersContainer implements Serializable {
         return mAmountMistakes;
     }
 
-    public void randomTwoNumbCollections(int amountElements) {
+    public long calcCommonShowTime() {
+        for(long time: timeShowAnswers) {
+            allShowTime+=time;
+        }
+        return allShowTime;
+    }
+
+    private void randomTwoNumbCollections(int amountElements) {
         Random random = new Random();
         correctAnswersArray = new ArrayList<>(amountElements);
         usersAnswersArray = new ArrayList<>(amountElements);
@@ -61,7 +68,6 @@ public class MemoryAnswersContainer implements Serializable {
             correctAnswersArray.add(String.format("%02d", random.nextInt(100)));
         }
         Log.d("CorrectAnswers", "Answers = " + correctAnswersArray.size());
-
     }
 
     public void randomThreeNumbCollections(int amountElements) {
@@ -80,7 +86,7 @@ public class MemoryAnswersContainer implements Serializable {
     }
 
     // Get amount of Mistakes
-    public int getAmountMistakes() {
+    public short getAmountMistakes() {
         return mAmountMistakes;
     }
 
@@ -89,13 +95,9 @@ public class MemoryAnswersContainer implements Serializable {
         return mAmountElements;
     }
 
-    // Get/Set correct answers array
+    // Get correct answers array
     public ArrayList<String> getCorrectAnswersArray() {
         return correctAnswersArray;
-    }
-
-    public void setCorrectAnswersArray(ArrayList<String> correctAnswersArray) {
-        this.correctAnswersArray = correctAnswersArray;
     }
 
     // Get/Set user's answers array
@@ -110,9 +112,5 @@ public class MemoryAnswersContainer implements Serializable {
     // Get/Set user's answers time array
     public ArrayList<Long> getTimeShowAnswers() {
         return timeShowAnswers;
-    }
-
-    public void setTimeShowAnswers(ArrayList<Long> timeShowAnswers) {
-        this.timeShowAnswers = timeShowAnswers;
     }
 }

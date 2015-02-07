@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
         RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(28, 28);
         relativeParams.setMargins(140, 140, 0, 0);
         ImageView imageView = new ImageView(this);
-        imageView.setImageResource(R.drawable.circle_dark_blue);
+        imageView.setImageResource(R.drawable.circle_dark);
         relativeLayout.addView(imageView, relativeParams);
         // Create drawer with start memory layout(layout to choose and start memorizing exercise
         fragmentManager
@@ -98,8 +98,8 @@ public class MainActivity extends ActionBarActivity {
     @Subscribe
     public void onEventBusListener(ElementTypeEvent event) {
         Intent intent = new Intent(this, StartMemoryActivity.class);
-        intent.putExtra(EXTRA_KEY_AMOUNT_ELEMENTS, event.getAmountElements());
-        intent.putExtra(EXTRA_KEY_MEMORY_TYPE, event.getMemoryType());
+        intent.putExtra(EXTRA_KEY_AMOUNT_ELEMENTS, event.amountElements);
+        intent.putExtra(EXTRA_KEY_MEMORY_TYPE, event.memoryType);
         startActivity(intent);
     }
 }

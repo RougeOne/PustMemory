@@ -4,164 +4,177 @@
     android:id="@+id/exerciseLineContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fb_blue"
     android:orientation="vertical">
 
     <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <EditText
-        android:id="@+id/equationAnswerFirst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="96dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/exercise_block"
-        android:ems="2"
+        android:layout_marginTop="68dp">
 
-        android:gravity="center_horizontal"
-        android:hint="|"
-        android:inputType="number"
-        android:textSize="24sp" />
+        <EditText
+            android:id="@+id/equationAnswerFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="96dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/edit_view_quation_block"
+            android:ems="2"
+            android:gravity="center_horizontal"
+            android:hint="|"
+            android:inputType="number"
+            android:textColor="@color/fb_text_edit_text"
+            android:textColorHint="@color/fb_text_edit_hint"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/mathEquationStringFirst"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_toLeftOf="@+id/equationAnswerFirst"
-        android:gravity="end"
-        android:textColor="@color/work_dark"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:text="76 + 11 = " />
+        <TextView
+            android:id="@+id/mathEquationStringFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_toLeftOf="@+id/equationAnswerFirst"
+            android:gravity="end"
+            android:textColor="@color/fb_text_white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="76 + 11 = " />
 
-    <EditText
-        android:id="@+id/equationAnswerSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/equationAnswerFirst"
-        android:layout_marginRight="96dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/exercise_block"
-        android:ems="2"
-        android:gravity="center_horizontal"
-        android:hint="|"
-        android:inputType="number"
-        android:textSize="24sp" />
+        <EditText
+            android:id="@+id/equationAnswerSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/equationAnswerFirst"
+            android:layout_marginRight="96dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/edit_view_quation_block"
+            android:ems="2"
+            android:gravity="center_horizontal"
+            android:hint="|"
+            android:inputType="number"
+            android:textColor="@color/fb_text_edit_text"
+            android:textColorHint="@color/fb_text_edit_hint"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/mathEquationStringSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/equationAnswerFirst"
-        android:layout_marginTop="4dp"
-        android:layout_toLeftOf="@+id/equationAnswerFirst"
-        android:gravity="end"
-        android:textColor="@color/work_dark"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:text="6 + 4 = " />
+        <TextView
+            android:id="@+id/mathEquationStringSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/equationAnswerFirst"
+            android:layout_marginTop="4dp"
+            android:layout_toLeftOf="@+id/equationAnswerFirst"
+            android:gravity="end"
+            android:textColor="@color/fb_text_white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="6 + 4 = " />
 
-    <EditText
-        android:id="@+id/equationAnswerThird"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/equationAnswerSecond"
-        android:layout_marginRight="96dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/exercise_block"
-        android:ems="2"
-        android:gravity="center_horizontal"
-        android:hint="|"
-        android:inputType="number"
-        android:textSize="24sp" />
+        <EditText
+            android:id="@+id/equationAnswerThird"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/equationAnswerSecond"
+            android:layout_marginRight="96dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/edit_view_quation_block"
+            android:ems="2"
+            android:gravity="center_horizontal"
+            android:hint="|"
+            android:inputType="number"
+            android:textColor="@color/fb_text_edit_text"
+            android:textColorHint="@color/fb_text_edit_hint"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/mathEquationStringThird"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/equationAnswerSecond"
-        android:layout_marginTop="4dp"
-        android:layout_toLeftOf="@+id/equationAnswerFirst"
-        android:gravity="end"
-        android:textColor="@color/work_dark"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:text="102 + 11 = " />
+        <TextView
+            android:id="@+id/mathEquationStringThird"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/equationAnswerSecond"
+            android:layout_marginTop="4dp"
+            android:layout_toLeftOf="@+id/equationAnswerFirst"
+            android:gravity="end"
+            android:textColor="@color/fb_text_white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="102 + 11 = " />
 
-    <EditText
-        android:id="@+id/equationAnswerFourth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/equationAnswerThird"
-        android:layout_marginRight="96dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/exercise_block"
-        android:ems="2"
-        android:gravity="center_horizontal"
+        <EditText
+            android:id="@+id/equationAnswerFourth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/equationAnswerThird"
+            android:layout_marginRight="96dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/edit_view_quation_block"
+            android:ems="2"
+            android:gravity="center_horizontal"
 
-        android:hint="|"
-        android:inputType="number"
-        android:textSize="24sp" />
+            android:hint="|"
+            android:inputType="number"
+            android:textColor="@color/fb_text_edit_text"
+            android:textColorHint="@color/fb_text_edit_hint"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/mathEquationStringFourth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/equationAnswerThird"
-        android:layout_marginTop="4dp"
-        android:layout_toLeftOf="@+id/equationAnswerFirst"
-        android:gravity="end"
-        android:textColor="@color/work_dark"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:text="12 + 50 = " />
+        <TextView
+            android:id="@+id/mathEquationStringFourth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/equationAnswerThird"
+            android:layout_marginTop="4dp"
+            android:layout_toLeftOf="@+id/equationAnswerFirst"
+            android:gravity="end"
+            android:textColor="@color/fb_text_white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="12 + 50 = " />
 
-    <EditText
-        android:id="@+id/equationAnswerFifth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/equationAnswerFourth"
-        android:layout_marginRight="96dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/exercise_block"
-        android:ems="2"
-        android:gravity="center_horizontal"
-        android:hint="|"
-        android:inputType="number"
-        android:textSize="24sp" />
+        <EditText
+            android:id="@+id/equationAnswerFifth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/equationAnswerFourth"
+            android:layout_marginRight="96dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/edit_view_quation_block"
+            android:ems="2"
+            android:gravity="center_horizontal"
+            android:hint="|"
+            android:inputType="number"
+            android:textColor="@color/fb_text_edit_text"
+            android:textColorHint="@color/fb_text_edit_hint"
+            android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/mathEquationStringFifth"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/equationAnswerFourth"
-        android:layout_marginTop="4dp"
-        android:layout_toLeftOf="@+id/equationAnswerFifth"
-        android:gravity="end"
-        android:textColor="@color/work_dark"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:text="46 + 71 = " />
+        <TextView
+            android:id="@+id/mathEquationStringFifth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/equationAnswerFourth"
+            android:layout_marginTop="4dp"
+            android:layout_toLeftOf="@+id/equationAnswerFifth"
+            android:gravity="end"
+            android:textColor="@color/fb_text_white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:text="46 + 71 = " />
     </RelativeLayout>
 
-
-    <Button
+    <TextView
+        android:gravity="center"
         android:id="@+id/checkUsersEquationAnswers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
-        android:background="@drawable/selector_input_numb"
-        android:text="Проверить"
+        android:padding="4dp"
+        android:text="@string/distract_check_equation"
+        android:textColor="@color/fb_text_white"
+        android:textSize="20sp"
         android:textStyle="bold" />
-
 
 </RelativeLayout>

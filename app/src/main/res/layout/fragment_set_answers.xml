@@ -2,27 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/work_white"
+    android:background="@color/fb_white"
     android:windowSoftInputMode="adjustUnspecified">
 
     <Button
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:id="@+id/addUsersAnswer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/selector_input_numb"
-        android:text="Добавить"
-        android:textColor="@color/work_white"
-        android:textStyle="bold" />
+        android:text="@string/set_answer_add_numb"
+        android:textColor="@color/fb_text_white"
+        android:textSize="20sp"/>
     <EditText
+        android:padding="8dp"
+        android:background="@drawable/edit_view_user_answer"
         android:layout_above="@+id/addUsersAnswer"
-        android:textSize="40sp"
+        android:textSize="18sp"
+        android:textColorHint="@color/fb_text_edit_hint"
+        android:textColor="@color/fb_text_edit_text"
         android:id="@+id/usersAnswerEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_container"
         android:gravity="center_horizontal|bottom"
-        android:hint="Число"
+        android:hint="@string/set_answer_edit_numb"
         android:inputType="number"
         android:maxLength="3" />
 

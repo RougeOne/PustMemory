@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:actionLayout="@layout/answer_menu_button"
+        android:actionLayout="@layout/view_menu_button_check"
         android:title="Skip"
         android:id="@+id/actionCheckResult"
         app:showAsAction="always">

@@ -14,5 +14,10 @@
     <string name="not_repeated_elements">Не повторять элементы</string>
     <string name="voice_rb">Голос</string>
     <string name="playing_card_rb">Карты</string>
+    <string name="type_numbs_two">00-99</string>
+    <string name="type_numbs_three">000-999</string>
+    <string name="distract_check_equation">Проверить</string>
+    <string name="set_answer_add_numb">Добавить</string>
+    <string name="set_answer_edit_numb">Число</string>
 
 </resources>

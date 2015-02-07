@@ -18,9 +18,11 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
 import com.redgrue.pm.adapters.AdapterFillNumb;
 import com.redgrue.pm.container.MemoryAnswersContainer;
+import com.redgrue.pm.event.ShowStatisticsEvent;
 
 import java.util.ArrayList;
 
@@ -63,7 +65,7 @@ public class UsersAnswersFragment extends Fragment {
         final EditText userAnswerEditText = (EditText) view.findViewById(R.id.usersAnswerEditText);
 
         usersAnswersGridView = (GridView) view.findViewById(R.id.AnswersGridView);
-        mAdapterFillNumb = new AdapterFillNumb(getActivity(), R.layout.schedule_answer_view, usersAnswersArray);
+        mAdapterFillNumb = new AdapterFillNumb(getActivity(), R.layout.view_schedule_answer, usersAnswersArray);
         usersAnswersGridView.setAdapter(mAdapterFillNumb);
         usersAnswersGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -72,8 +74,6 @@ public class UsersAnswersFragment extends Fragment {
                     correctNumbDialog(position);
             }
         });
-
-
         view.findViewById(R.id.addUsersAnswer).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,6 +129,7 @@ public class UsersAnswersFragment extends Fragment {
                     isInterrupted();
                 mAdapterFillNumb.checkResults(correctAnswersArray, true);
                 isAnswerCompareCheck = true;
+                AppMnemoNet.getInstance().getBus().post(new ShowStatisticsEvent());
                 break;
             }
             default: {

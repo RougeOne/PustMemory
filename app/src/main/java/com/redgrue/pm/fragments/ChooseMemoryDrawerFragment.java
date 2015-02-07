@@ -29,41 +29,12 @@ public class ChooseMemoryDrawerFragment extends Fragment implements RadioGroup.O
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    /*public void showKeyboardWithAnimation() {
-        if (mKeyboardView.getVisibility() == View.GONE) {
-            Animation animation = AnimationUtils
-                    .loadAnimation(getActivity(),
-                            R.anim.slide_in_bottom);
-            mKeyboardView.showWithAnimation(animation);
-        }
-    }*/
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_choose_memory, container, false);
 
         final RadioGroup chooseMemoryType = (RadioGroup) view.findViewById(R.id.memoryTypeRadioGroup);
         chooseMemoryType.setOnCheckedChangeListener(this);
         memoryType = MemoryAnswersContainer.TYPE_NUMBS_TWO;
-        // Create Custom Numb Keyboard and and(view) to activity
-        /*mKeyboard = new Keyboard(getActivity(), R.xml.keyboard);
-        mKeyboardView = (NumbKeyboard) getActivity().findViewById(R.id.keyboard_view);
-        mKeyboardView.setKeyboard(mKeyboard);
-        mKeyboardView.setOnKeyboardActionListener(new NumbKeyboardListener(
-                getActivity()));
-        mTargetView = (EditText) view.findViewById(R.id.setElementsAmountEditView);
-        mTargetView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                showKeyboardWithAnimation();
-                return true;
-            }
-        });*/
 
         final EditText elementEditText = (EditText) view.findViewById(R.id.setElementsAmountEditView);
         view.findViewById(R.id.MstartButton).setOnClickListener(new View.OnClickListener() {
