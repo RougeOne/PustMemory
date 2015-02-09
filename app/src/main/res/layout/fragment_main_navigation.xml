@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayoutFragmentContainer"
+    android:background="@drawable/shape_gradient_logon"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/MstartButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="48dp"
+        android:background="@drawable/selector_circle_start_m"
+        android:src="@drawable/small_net_m_icon" />
+
+    <!--<TextView-->
+    <!--android:id="@+id/loadLine"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="4dp"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:layout_toRightOf="@id/MstartButton"-->
+    <!--android:background="@color/fb_grey"-->
+    <!--android:visibility="invisible" />-->
+
+    <RelativeLayout
+        android:id="@+id/galaxyContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_margin="48dp"
+            android:src="@drawable/circle_dark"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
+        <ImageView
+            android:layout_alignParentBottom="true"
+            android:layout_margin="48dp"
+            android:src="@drawable/circle_dark"
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

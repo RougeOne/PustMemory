@@ -1,71 +1,64 @@
 package com.redgrue.pm.activities;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
-import com.redgrue.pm.event.ElementTypeEvent;
+import com.redgrue.pm.event.LoginEvent;
+import com.redgrue.pm.event.MainMenuEvent;
+import com.redgrue.pm.event.MemoryTypeEvent;
 import com.redgrue.pm.fragments.ChooseMemoryDrawerFragment;
+import com.redgrue.pm.fragments.LoginFragment;
+import com.redgrue.pm.fragments.MainNavigationFragment;
+import com.redgrue.pm.preferences.PrefsActivity;
 import com.redgrue.pm.service.QuickStartService;
 import com.squareup.otto.Subscribe;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
     private static final String Log_TAG = MainActivity.class.getSimpleName();
     public static final String EXTRA_KEY_AMOUNT_ELEMENTS = "EXTRA_KEY_AMOUNT_ELEMENTS";
-    public static final String EXTRA_KEY_MEMORY_TYPE= "EXTRA_KEY_MEMORY_TYPE";
+    public static final String EXTRA_KEY_MEMORY_TYPE = "EXTRA_KEY_MEMORY_TYPE";
 
 
     private FragmentManager fragmentManager;
     private boolean drawerOpen;
 
-    private TextView loadLine;
+    //    private TextView loadLine;
+    private DrawerLayout mDrawerLayout;
+    private ChooseMemoryDrawerFragment mChooseMemoryDrawerFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadLine = (TextView) findViewById(R.id.loadLine);
         fragmentManager = getFragmentManager();
 
-//        LayoutInflater inflater = LayoutInflater.from(this);
+        //Locking drawer
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.mainActivityDrawerLayout);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.galaxyContainer);
-        RelativeLayout.LayoutParams relativeParams = new RelativeLayout.LayoutParams(28, 28);
-        relativeParams.setMargins(140, 140, 0, 0);
-        ImageView imageView = new ImageView(this);
-        imageView.setImageResource(R.drawable.circle_dark);
-        relativeLayout.addView(imageView, relativeParams);
-        // Create drawer with start memory layout(layout to choose and start memorizing exercise
+        // Getting fragment drawer with start memory layout(layout to choose and start memorizing exercise
+        mChooseMemoryDrawerFragment = (ChooseMemoryDrawerFragment)
+                fragmentManager.findFragmentById(R.id.drawerMainActivity);
+        mChooseMemoryDrawerFragment.setUp(
+                R.id.navigation_drawer,
+                (DrawerLayout) findViewById(R.id.mainActivityDrawerLayout));
+
+
         fragmentManager
                 .beginTransaction()
-                .add(R.id.drawerMainActivity, new ChooseMemoryDrawerFragment())
+                .add(R.id.containerMainActivity, new LoginFragment())
                 .commit();
-
-        findViewById(R.id.MstartButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (!drawerOpen) {
-                    loadLine.setVisibility(View.VISIBLE);
-                    findViewById(R.id.drawerMainActivity).setVisibility(View.VISIBLE);
-                    drawerOpen = true;
-                } else {
-                    loadLine.setVisibility(View.INVISIBLE);
-                    findViewById(R.id.drawerMainActivity).setVisibility(View.GONE);
-                    drawerOpen = false;
-                }
-            }
-        });
-
         Log.d(Log_TAG, "onCreate");
     }
 
@@ -95,11 +88,37 @@ public class MainActivity extends ActionBarActivity {
         Log.d(Log_TAG, "onStop");
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main_preferenses, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        PrefsActivity.startActivity(this);
+        return super.onOptionsItemSelected(item);
+    }
+
     @Subscribe
-    public void onEventBusListener(ElementTypeEvent event) {
+    public void onStartMemoryBusListener(MemoryTypeEvent event) {
         Intent intent = new Intent(this, StartMemoryActivity.class);
         intent.putExtra(EXTRA_KEY_AMOUNT_ELEMENTS, event.amountElements);
         intent.putExtra(EXTRA_KEY_MEMORY_TYPE, event.memoryType);
         startActivity(intent);
+    }
+
+    @Subscribe
+    public void onMainMenuBusListener(MainMenuEvent event) {
+        mDrawerLayout.openDrawer(Gravity.END);
+    }
+
+    @Subscribe
+    public void onLogInBusListener(LoginEvent event) {
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+        fragmentManager.beginTransaction()
+                .replace(R.id.containerMainActivity, new MainNavigationFragment())
+                .commit();
     }
 }

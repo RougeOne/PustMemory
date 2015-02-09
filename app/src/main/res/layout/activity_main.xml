@@ -1,72 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivityDrawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/fb_white"
-            tools:context=".MainActivity">
-
-            <ImageButton
-                android:id="@+id/MstartButton"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="48dp"
-                android:background="@drawable/selector_circle_main_m"
-                android:src="@drawable/small_net_m_icon" />
-
-            <TextView
-                android:id="@+id/loadLine"
-                android:layout_width="match_parent"
-                android:layout_height="4dp"
-                android:layout_centerInParent="true"
-                android:layout_toRightOf="@id/MstartButton"
-                android:background="@color/fb_grey"
-                android:visibility="invisible" />
-        </RelativeLayout>
-
-
-    <RelativeLayout
-        android:id="@+id/galaxyContainer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:layout_margin="48dp"
-            android:src="@drawable/circle_dark"
-            android:layout_width="10dp"
-            android:layout_height="10dp" />
-
-        <ImageView
-            android:layout_alignParentBottom="true"
-            android:layout_margin="48dp"
-            android:src="@drawable/circle_dark"
-            android:layout_width="10dp"
-            android:layout_height="10dp" />
-
-        <ImageView
-            android:layout_alignParentRight="true"
-            android:layout_centerInParent="true"
-            android:layout_margin="48dp"
-            android:src="@drawable/circle_dark"
-            android:layout_width="10dp"
-            android:layout_height="10dp" />
-    </RelativeLayout>
+    android:layout_height="match_parent">
 
     <FrameLayout
+        android:id="@+id/containerMainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <fragment
+        android:tag="This"
+        android:layout_margin="1.4dp"
         android:id="@+id/drawerMainActivity"
+        android:name="com.redgrue.pm.fragments.ChooseMemoryDrawerFragment"
         android:layout_width="180dp"
         android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
-        android:background="@color/fb_blue"
-        android:visibility="invisible" />
+        android:layout_gravity="end"
+        tools:layout="@layout/fragment_drawer_choose_memory" />
 
-
-
-
-</RelativeLayout>
+</android.support.v4.widget.DrawerLayout>

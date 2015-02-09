@@ -1,9 +1,9 @@
 package com.redgrue.pm.activities;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Gravity;
 
@@ -22,15 +22,13 @@ import com.squareup.otto.Subscribe;
 /**
  * Created by rouge on 29.01.2015.
  */
-public class StartMemoryActivity extends ActionBarActivity {
+public class StartMemoryActivity extends Activity {
 
     private static final String Log_TAG = StartMemoryActivity.class.getSimpleName();
-    private short answersCounter;
     private MemoryAnswersContainer memoryAnswersContainer;
     private FragmentManager fragmentManager;
 
     private StatisticsDrawerFragment mStatisticsDrawerFragment;
-    private CharSequence mTitle;
     private DrawerLayout mDrawerLayout;
 
     @Override
@@ -39,17 +37,16 @@ public class StartMemoryActivity extends ActionBarActivity {
         setContentView(R.layout.activity_start_memory);
         fragmentManager = getFragmentManager();
 
-        mStatisticsDrawerFragment = (StatisticsDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
-
         // Set up the drawer.
         mDrawerLayout = (DrawerLayout) findViewById(R.id.statisticsDrawerLayout);
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
-        mStatisticsDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.statisticsDrawerLayout));
+        mStatisticsDrawerFragment = (StatisticsDrawerFragment)
+                getFragmentManager().findFragmentById(R.id.navigation_drawer);
+                    mStatisticsDrawerFragment.setUp(
+                                    R.id.navigation_drawer,
+                                    (DrawerLayout) findViewById(R.id.statisticsDrawerLayout));
+
         final Bundle extras = getIntent().getExtras();
         if (extras != null) {
             if (extras.containsKey(MainActivity.EXTRA_KEY_AMOUNT_ELEMENTS)) {

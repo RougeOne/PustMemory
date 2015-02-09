@@ -20,6 +20,8 @@ public class AppMnemoNet extends Application {
         mBus = new Bus();
     }
 
+
+
     public static AppMnemoNet getInstance() {
         return sInstance;
     }

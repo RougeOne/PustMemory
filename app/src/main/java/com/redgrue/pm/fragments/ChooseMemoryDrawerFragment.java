@@ -2,6 +2,9 @@ package com.redgrue.pm.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +16,7 @@ import android.widget.Toast;
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
 import com.redgrue.pm.container.MemoryAnswersContainer;
-import com.redgrue.pm.event.ElementTypeEvent;
+import com.redgrue.pm.event.MemoryTypeEvent;
 
 /**
  * Created by rouge on 01.02.2015.
@@ -21,16 +24,18 @@ import com.redgrue.pm.event.ElementTypeEvent;
 public class ChooseMemoryDrawerFragment extends Fragment implements RadioGroup.OnCheckedChangeListener {
 
     private static final String Log_TAG = ChooseMemoryDrawerFragment.class.getSimpleName();
-    private int defaultElemenets;
     private String memoryType;
 
+    private DrawerLayout mDrawerLayout;
+    private View mFragmentContainerView;
+
     public ChooseMemoryDrawerFragment() {
-        defaultElemenets = 20;
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_choose_memory, container, false);
+        final View view = inflater.inflate(R.layout.fragment_drawer_choose_memory, container, false);
 
         final RadioGroup chooseMemoryType = (RadioGroup) view.findViewById(R.id.memoryTypeRadioGroup);
         chooseMemoryType.setOnCheckedChangeListener(this);
@@ -40,9 +45,10 @@ public class ChooseMemoryDrawerFragment extends Fragment implements RadioGroup.O
         view.findViewById(R.id.MstartButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(Log_TAG, "MStartButton was pressed");
                 if (!elementEditText.getText().toString().isEmpty()) {
                     Short elementsAmount = Short.parseShort(elementEditText.getText().toString());
-                    AppMnemoNet.getInstance().getBus().post(new ElementTypeEvent(elementsAmount, memoryType));
+                    AppMnemoNet.getInstance().getBus().post(new MemoryTypeEvent(elementsAmount, memoryType));
                 } else {
                     Toast.makeText(getActivity(), "Укажите число элементов", Toast.LENGTH_SHORT).show();
                 }
@@ -79,5 +85,15 @@ public class ChooseMemoryDrawerFragment extends Fragment implements RadioGroup.O
                 Log.e(Log_TAG, "default onClickListener was implemented");
             }
         }
+    }
+
+    public boolean isDrawerOpen() {
+        return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
+    }
+
+    public void setUp(int fragmentId, DrawerLayout drawerLayout) {
+        mFragmentContainerView = getActivity().findViewById(fragmentId);
+        mDrawerLayout = drawerLayout;
+        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
     }
 }

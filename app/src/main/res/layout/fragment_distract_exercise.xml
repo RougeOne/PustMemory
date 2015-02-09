@@ -4,7 +4,7 @@
     android:id="@+id/exerciseLineContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fb_blue"
+    android:background="@color/fb_blue_main"
     android:orientation="vertical">
 
     <RelativeLayout

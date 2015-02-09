@@ -1,7 +1,6 @@
 package com.redgrue.pm.fragments;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
+import android.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
@@ -24,8 +23,6 @@ import java.util.Date;
 public class StatisticsDrawerFragment extends Fragment {
 
     private static final String Log_TAG = StatisticsDrawerFragment.class.getSimpleName();
-
-    private ActionBarDrawerToggle mDrawerToggle;
 
     private DrawerLayout mDrawerLayout;
     private View mFragmentContainerView;

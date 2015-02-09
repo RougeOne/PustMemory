@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:top="1dp" android:left="1dp" >
+<item android:top="1.2dp" android:left="1.2dp" >
    //Shadow shape
     <shape android:shape="rectangle">
         <size
@@ -11,13 +11,13 @@
         <corners android:radius="2dp"/>
     </shape>
 </item>
-<item android:bottom="0.5dp" android:right="0.5dp">
+<item  android:bottom="1dp" android:right="1dp">
     //Rectangle shape
     <shape android:shape="rectangle">
         <size
             android:width="24dp"
             android:height="24dp" />
-        <solid android:color="@color/fb_blue" />
+        <solid android:color="@color/fb_blue_main_dark" />
         <corners android:radius="4dp"/>
     </shape>
 </item>

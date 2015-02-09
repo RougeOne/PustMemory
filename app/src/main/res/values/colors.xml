@@ -10,7 +10,11 @@
 
 
     // FB colors
-    <color name="fb_blue">#45619D</color>
+    <color name="fb_blue_main">#45619D</color>
+    <color name="fb_blue_main_dark">#2F477A</color>
+    <color name="fb_blue_additional_light">#FFCBD3E3</color>
+    <color name="fb_blue_transparent">#4645619d</color>
+
     <color name="fb_white">#FFFFFF</color>
     <color name="fb_grey">#E9EAED</color>
 

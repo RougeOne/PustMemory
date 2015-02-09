@@ -16,9 +16,6 @@ import com.redgrue.pm.event.ShowCorrectAnswersEvent;
 
 import java.util.ArrayList;
 
-/**
- * Created by rouge on 19.01.2015.
- */
 public class ShowCorrectNumbFragment extends Fragment {
 
     private static final String Log_TAG = ShowCorrectNumbFragment.class.getSimpleName();
@@ -72,7 +69,7 @@ public class ShowCorrectNumbFragment extends Fragment {
         if (counter % 2 == 0)
             mainBackground.setBackgroundColor(getResources().getColor(R.color.fb_grey));
         else
-            mainBackground.setBackgroundColor(getResources().getColor(R.color.fb_white));
+            mainBackground.setBackgroundColor(getResources().getColor(R.color.fb_blue_transparent));
 
     }
 

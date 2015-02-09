@@ -4,7 +4,7 @@
     android:id="@+id/statisticsDrawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.redgrue.pm.activity_ans">
+    android:background="@color/fb_blue_transparent">
 
     <FrameLayout
         android:id="@+id/containerStartMemoryActivity"
@@ -13,12 +13,12 @@
         android:background="@color/fb_white" />
 
     <fragment
-        android:layout_margin="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:id="@+id/navigation_drawer"
         android:name="com.redgrue.pm.fragments.StatisticsDrawerFragment"
         android:layout_width="@dimen/navigation_drawer_width"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         tools:layout="@layout/fragment_drawer_statistics" />
-
 </android.support.v4.widget.DrawerLayout>

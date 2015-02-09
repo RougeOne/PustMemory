@@ -101,7 +101,7 @@ public class UsersAnswersFragment extends Fragment {
         return true;
     }
 
-    private boolean isCorrectAnswers(int position, String correctedAnswer) {
+    private boolean changeUsersAnswer(int position, String correctedAnswer) {
         usersAnswersArray.set(position, correctedAnswer);
         Log.d(Log_TAG, "Answers " + correctedAnswer + " Position " + position);
         Log.d(Log_TAG, "Get position " + usersAnswersArray.get(position));
@@ -146,22 +146,24 @@ public class UsersAnswersFragment extends Fragment {
         final EditText correctAnswerEditView = (EditText) messageView.findViewById(R.id.usersCorrectAnswers);
         final AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setTitle("Позиция " + (position + 1))
-                .setView(messageView).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(final DialogInterface dialog, final int which) {
-                String correctedAnswer;
-                if (!TextUtils.isEmpty(correctAnswerEditView.getText().toString())) {
-                    correctedAnswer = correctAnswerEditView.getText().toString();
-                    isCorrectAnswers(position, correctedAnswer);
-                }
-                dialog.dismiss();
-            }
-        }).setNeutralButton("Отмена", new DialogInterface.OnClickListener() {
+                .setView(messageView)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(final DialogInterface dialog, final int which) {
+                        String correctedAnswer;
+                        if (!TextUtils.isEmpty(correctAnswerEditView.getText().toString())) {
+                            correctedAnswer = correctAnswerEditView.getText().toString();
+                            changeUsersAnswer(position, correctedAnswer);
+                        }
+                        dialog.dismiss();
+                    }
+                }).setNeutralButton("Отмена", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(final DialogInterface dialog, final int which) {
                 dialog.dismiss();
             }
         });
+
         final AlertDialog alert = dialog.create();
         alert.show();
     }

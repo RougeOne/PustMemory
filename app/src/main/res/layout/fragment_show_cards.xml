@@ -6,16 +6,10 @@
     android:background="@color/fb_blue_transparent"
     android:id="@+id/showNumbMainBackground">
 
-    <TextView
-        android:id="@+id/ShowNumbView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@color/fb_text_main"
-        android:textSize="192sp"
-        android:textStyle="bold"
-        tools:text="64" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <ImageButton
         android:layout_margin="2dp"
