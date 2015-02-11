@@ -5,23 +5,23 @@
 
 
     <PreferenceCategory
-        android:key="categ1"
-        android:summary="Description of category 1"
+        android:key="default_settings"
+        android:summary="Настройка запоминания"
         android:title="Category 1">
 
         <EditTextPreference
-            android:dialogMessage="Some message"
-            android:dialogTitle="Input number"
+            android:dialogMessage="Введите колиество элементов"
+            android:dialogTitle=""
             android:inputType="number"
             android:key="editText"
-            android:summary="Some text"
+            android:summary="Количество элементов"
             android:title="Text" />
     </PreferenceCategory>
 
 
     <PreferenceCategory
-        android:key="categ2"
-        android:summary="Description of category 2"
+        android:key="Orientation changing"
+        android:summary="Изменение ориентации"
         android:title="Category 2">
         <SwitchPreference
             android:key="switch"
@@ -31,16 +31,9 @@
     </PreferenceCategory>
 
     <PreferenceScreen
-        android:key="screen"
-        android:summary="Description of screen"
+        android:key="Настройка бытрого доступа"
+        android:summary="Настройка бытрого доступа"
         android:title="Screen">
-
-        <PreferenceCategory
-            android:key="categ3"
-            android:summary="Description of category 3"
-            android:title="Category 3">
-
-        </PreferenceCategory>
     </PreferenceScreen>
 
 </PreferenceScreen>

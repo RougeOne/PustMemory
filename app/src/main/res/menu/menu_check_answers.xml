@@ -4,7 +4,6 @@
 
     <item
         android:id="@+id/actionCheckResult"
-        android:actionLayout="@layout/view_menu_button_check"
         android:title="@string/item_check_result"
-        app:showAsAction="always" />
+        android:showAsAction="always" />
 </menu>

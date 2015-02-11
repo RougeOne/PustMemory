@@ -16,6 +16,7 @@ public class AppMnemoNet extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
         sInstance = this;
         mBus = new Bus();
     }

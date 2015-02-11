@@ -24,17 +24,9 @@ public class PustPrefsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-            onCreatePreferenceActivity();
-        } else {
             onCreatePreferenceFragment();
-        }
     }
 
-        @SuppressWarnings("deprecation")
-        private void onCreatePreferenceActivity() {
-            addPreferencesFromResource(R.xml.prefs);
-        }
 
         @TargetApi(Build.VERSION_CODES.HONEYCOMB)
         private void onCreatePreferenceFragment() {

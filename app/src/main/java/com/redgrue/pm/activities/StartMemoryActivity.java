@@ -42,7 +42,7 @@ public class StartMemoryActivity extends Activity {
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
         mStatisticsDrawerFragment = (StatisticsDrawerFragment)
-                getFragmentManager().findFragmentById(R.id.navigation_drawer);
+                fragmentManager.findFragmentById(R.id.navigation_drawer);
                     mStatisticsDrawerFragment.setUp(
                                     R.id.navigation_drawer,
                                     (DrawerLayout) findViewById(R.id.statisticsDrawerLayout));
@@ -58,7 +58,7 @@ public class StartMemoryActivity extends Activity {
 
         fragmentManager
                 .beginTransaction()
-                .replace(R.id.containerStartMemoryActivity, new ShowCorrectNumbFragment(memoryAnswersContainer))
+                .add(R.id.containerStartMemoryActivity, new ShowCorrectNumbFragment(memoryAnswersContainer))
                 .commit();
         Log.i(Log_TAG, "onCreate");
     }
