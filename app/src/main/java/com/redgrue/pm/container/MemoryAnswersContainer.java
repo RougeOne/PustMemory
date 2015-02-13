@@ -23,11 +23,14 @@ public class MemoryAnswersContainer implements Serializable {
     private final short mAmountElements;
 
     private ArrayList<String> correctAnswersArray;
-    private ArrayList<Long> timeShowAnswers;
     private ArrayList<String> usersAnswersArray;
+
+    private ArrayList<Long> timeShowAnswers;
 
     public MemoryAnswersContainer(short amountElements, String type) {
         mAmountElements = amountElements;
+        correctAnswersArray = new ArrayList<>(amountElements);
+        usersAnswersArray = new ArrayList<>(amountElements);
         timeShowAnswers = new ArrayList<>(amountElements);
         switch (type) {
             case TYPE_NUMBS_TWO: {
@@ -62,8 +65,6 @@ public class MemoryAnswersContainer implements Serializable {
 
     private void randomTwoNumbCollections(int amountElements) {
         Random random = new Random();
-        correctAnswersArray = new ArrayList<>(amountElements);
-        usersAnswersArray = new ArrayList<>(amountElements);
         for (int i = 0; i < amountElements; i++) {
             correctAnswersArray.add(String.format("%02d", random.nextInt(100)));
         }
@@ -72,17 +73,17 @@ public class MemoryAnswersContainer implements Serializable {
 
     public void randomThreeNumbCollections(int amountElements) {
         Random random = new Random();
-        correctAnswersArray = new ArrayList<>(amountElements);
-        usersAnswersArray = new ArrayList<>(amountElements);
         for (int i = 0; i < amountElements; i++) {
             correctAnswersArray.add(String.format("%03d", random.nextInt(1000)));
         }
-        Log.d("CorrectAnswers", "Answers = " + correctAnswersArray.size());
-
     }
 
     public void randomCardsCollections(int amountElements) {
-
+//        byte amountOfDecks = (byte) (amountElements / 52 + 1);
+        Random random = new Random();
+        for (int i = 0; i < amountElements; i++) {
+                correctAnswersArray.add(String.valueOf(random.nextInt(52)));
+        }
     }
 
     // Get amount of Mistakes

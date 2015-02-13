@@ -3,6 +3,7 @@ package com.redgrue.pm.activities;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -55,14 +56,29 @@ public class MainActivity extends Activity {
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.mainActivityDrawerLayout));
 
+        if (isLogin()) {
+            fragmentManager
+                    .beginTransaction()
+                    .add(R.id.containerMainActivity, new LoginFragment())
+                    .commit();
 
-        fragmentManager
-                .beginTransaction()
-                .add(R.id.containerMainActivity, new LoginFragment())
-                .commit();
+        } else {
+            mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+            fragmentManager.beginTransaction()
+                    .add(R.id.containerMainActivity, new MainNavigationFragment())
+                    .commit();
+        }
         Log.d(Log_TAG, "onCreate");
     }
 
+
+    private boolean isLogin() {
+        final SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        final String userName = preferences.getString(LoginFragment.KEY_USER_NAME, "NO PASSWORD");
+        final String userPassword = preferences.getString(LoginFragment.KEY_USER_PASSWORD, "NO PASSWORD");
+        Log.d(Log_TAG, "User  " + userName + ":Password " + userPassword);
+        return userName.equals("NO PASSWORD");
+    }
 
     private void startForegroundService() {
         final Intent intent = new Intent(this, QuickStartService.class);

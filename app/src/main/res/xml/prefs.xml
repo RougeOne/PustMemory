@@ -2,38 +2,30 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-
-
     <PreferenceCategory
         android:key="default_settings"
-        android:summary="Настройка запоминания"
-        android:title="Category 1">
-
-        <EditTextPreference
-            android:dialogMessage="Введите колиество элементов"
-            android:dialogTitle=""
-            android:inputType="number"
-            android:key="editText"
-            android:summary="Количество элементов"
-            android:title="Text" />
-    </PreferenceCategory>
-
+        android:summary="Настройка профиля"
+        android:title="Быстрое начало">
+        </PreferenceCategory>
 
     <PreferenceCategory
-        android:key="Orientation changing"
-        android:summary="Изменение ориентации"
-        android:title="Category 2">
-        <SwitchPreference
-            android:key="switch"
-            android:summary="Switch"
-            android:title="Switch" />
+        android:key="CustomizationView"
+        android:summary="D ориентации"
+        android:title="Настройка внешнего вида">
+        <PreferenceScreen>
+            <PreferenceCategory
+                android:key="Orientation"
+                android:summary="Orientation"
+                android:title="Выпадающее меню">
+                <SwitchPreference
+                    android:switchTextOff="Слева"
+                    android:switchTextOn="Справа"
+                    android:key="orientation"
+                    android:summary="Положение выпадающего меню"
+                    android:title="Меню" />
+            </PreferenceCategory>
+    </PreferenceScreen>
 
     </PreferenceCategory>
-
-    <PreferenceScreen
-        android:key="Настройка бытрого доступа"
-        android:summary="Настройка бытрого доступа"
-        android:title="Screen">
-    </PreferenceScreen>
 
 </PreferenceScreen>

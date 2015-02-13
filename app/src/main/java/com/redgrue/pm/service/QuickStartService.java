@@ -51,7 +51,7 @@ public class QuickStartService extends Service {
 
     private void makeForeground() {
         final Notification notification = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_launcher)
+                .setSmallIcon(R.drawable.pust_lettre_m)
                 .setContentTitle("Foreground service")
                 .setContentText("Testing")
                 .build();

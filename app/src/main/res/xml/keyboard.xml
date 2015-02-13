@@ -21,9 +21,7 @@
     <Row>
         <Key
             android:codes="8"
-            android:iconPreview="@drawable/selector_input_numb"
             android:keyEdgeFlags="left"
-            android:keyIcon="@drawable/selector_input_numb"
             android:keyLabel="1" />
         <Key
             android:codes="9"
@@ -64,18 +62,16 @@
 
     <Row>
         <Key
-            android:codes="67"
-            android:iconPreview="@drawable/sym_keyboard_delete"
+            android:codes="6"
             android:keyEdgeFlags="left"
-            android:keyIcon="@drawable/sym_keyboard_delete" />
+            android:keyIcon="@drawable/delete_char"  />
         <Key
             android:codes="7"
             android:keyLabel="0" />
         <Key
             android:codes="66"
-            android:iconPreview="@drawable/sym_keyboard_feedback_return"
             android:keyEdgeFlags="right"
-            android:keyIcon="@drawable/sym_keyboard_feedback_return" />
+            android:keyIcon="@drawable/enter_char" />
     </Row>
 
 </Keyboard>

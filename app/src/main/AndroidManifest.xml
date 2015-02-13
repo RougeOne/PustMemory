@@ -6,9 +6,9 @@
 
 
     <application
-        android:icon="@drawable/pust_lettre_m"
         android:name=".AppMnemoNet"
         android:allowBackup="true"
+        android:icon="@drawable/pust_lettre_m"
         android:label="@string/app_name"
         android:theme="@style/Theme.TranslucentActionBar">
         <activity
@@ -17,13 +17,15 @@
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.StartMemoryActivity"
+            android:theme="@style/Theme.TranslucentActionBar"
             android:windowSoftInputMode="adjustResize" />
+
+
         <activity android:name=".preferences.PrefsActivity" />
 
         <service

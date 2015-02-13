@@ -4,20 +4,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fb_blue_transparent"
-    android:id="@+id/showNumbMainBackground">
+    android:id="@+id/showCardMainBackground">
 
+    <!--<ImageButton-->
+        <!--android:layout_margin="2dp"-->
+        <!--android:contentDescription="@string/circleButton"-->
+        <!--android:id="@+id/ButtonNextNumb"-->
+        <!--android:layout_width="64dp"-->
+        <!--android:layout_height="64dp"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="@drawable/selector_circle_change_numb" />-->
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_alignParentTop="true"
+        android:id="@+id/showCardView"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="12dp"
+        android:scaleType="fitCenter"
+        android:layout_width="match_parent"
+        android:layout_height="640dp"
+        android:src="@drawable/c2"/>
 
-    <ImageButton
-        android:layout_margin="2dp"
-        android:contentDescription="@string/circleButton"
-        android:id="@+id/ButtonNextNumb"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/selector_circle_change_numb" />
+
 </RelativeLayout>

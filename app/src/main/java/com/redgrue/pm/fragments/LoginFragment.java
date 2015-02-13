@@ -5,11 +5,14 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
@@ -28,9 +31,6 @@ public class LoginFragment extends Fragment {
     public static final String KEY_USER_NAME = "KEY_USER_NAME";
     public static final String KEY_USER_PASSWORD = "KEY_USER_PASSWORD";
 
-
-    boolean check = false;
-
     public LoginFragment() {
     }
 
@@ -43,36 +43,36 @@ public class LoginFragment extends Fragment {
         view.findViewById(R.id.registerUserLogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!check) {
-                    saveUserLogin();
-                    Log.d(Log_TAG, "save preferences");
-                    check = !check;
+                if (saveUserLogin()) {
+                    Toast.makeText(getActivity(), "Пользователь " + createUser() + " создан",Toast.LENGTH_SHORT).show();
+                    AppMnemoNet.getInstance().getBus().post(new LoginEvent());
                 } else {
-                    loadData();
+                    Toast.makeText(getActivity(), "Введите имя", Toast.LENGTH_LONG).show();
                 }
-//                AppMnemoNet.getInstance().getBus().post(new LoginEvent());
             }
         });
         return view;
     }
 
-    private void saveUserLogin() {
-        final String userName = userNameEditView.getText().toString();
-        final String userPassword = userPasswordEditView.getText().toString();
-
-        final SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor = preferences.edit();
-
-
-        editor.putString(KEY_USER_NAME, userName);
-        editor.putString(KEY_USER_PASSWORD, userPassword);
-        editor.commit();
-
+    private String createUser() {
+        return userNameEditView.getText().toString();
     }
 
-    private void loadData() {
-        final SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+    private String createPassword() {
+            return  userPasswordEditView.getText().toString();
+    }
 
+    private boolean saveUserLogin() {
+        if (!TextUtils.isEmpty(createUser())) {
+            final SharedPreferences preferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+            final SharedPreferences.Editor editor = preferences.edit();
+            editor.putString(KEY_USER_NAME, createUser());
+            editor.putString(KEY_USER_PASSWORD, createPassword());
+            Log.d(Log_TAG, "User = " + createUser() + ":Password = " + createPassword() );
+            editor.apply();
+            return true;
+        }
+        return false;
     }
 
 }

@@ -71,11 +71,11 @@ public class ChooseMemoryDrawerFragment extends Fragment implements RadioGroup.O
                 Log.d(Log_TAG, "Type " + memoryType);
                 break;
             }
-//            case (R.id.Cards): {
-//                memoryType = MemoryAnswersContainer.TYPE_CARDS;
-//                Log.d(Log_TAG, "Type " + memoryType);
-//                break;
-//            }
+            case (R.id.Cards): {
+                memoryType = MemoryAnswersContainer.TYPE_CARDS;
+                Log.d(Log_TAG, "Type " + memoryType);
+                break;
+            }
 //            case (R.id.Voice): {
 //                memoryType = MemoryAnswersContainer.TYPE_VOICE;
 //                Log.d(Log_TAG, "Type " + memoryType);

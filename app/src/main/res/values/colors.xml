@@ -18,8 +18,7 @@
     <color name="fb_white">#FFFFFF</color>
     <color name="fb_grey">#E9EAED</color>
 
-    <color name="fb_red">#F6353E</color>
-    <!--<color name="change_numb">#ffe3e3e3</color>-->
+    <color name="fb_red">#aff6353e</color>
 
     <color name="fb_text_main">#333333</color>
     <color name="fb_text_blue">#3B5998</color>
