@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="180dp"
@@ -56,22 +55,20 @@
         android:textColor="@color/fb_text_edit_text"
         android:textSize="12sp" />
 
-
-
     <RadioGroup
         android:layout_gravity="right"
         android:inputType="number"
         android:id="@+id/memoryTypeRadioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/setElementsShowTimeEditView"
+        android:layout_below="@+id/allowTimeCheckBox"
         android:checkedButton="@+id/twoNumbs"
         android:orientation="vertical">
 
         <RadioButton
             android:id="@+id/twoNumbs"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:checked="true"
             android:text="@string/type_numbs_two"
             android:textColor="@color/fb_text_white"
@@ -81,7 +78,7 @@
         <RadioButton
             android:id="@+id/threeNumbs"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:text="@string/type_numbs_three"
             android:textColor="@color/fb_text_white"
             android:textSize="12sp"
@@ -90,14 +87,13 @@
         <RadioButton
             android:id="@+id/Cards"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:text="@string/playing_card_rb"
             android:textColor="@color/fb_text_white"
             android:textSize="12sp"
             android:textStyle="bold" />
 
         <RadioButton
-            android:visibility="gone"
             android:id="@+id/Voice"
             android:layout_width="wrap_content"
             android:layout_height="32dp"

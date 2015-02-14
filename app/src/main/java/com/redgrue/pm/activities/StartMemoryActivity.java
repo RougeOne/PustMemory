@@ -12,6 +12,7 @@ import com.redgrue.pm.R;
 import com.redgrue.pm.event.ShowDistractExerciseEvent;
 import com.redgrue.pm.event.ShowCorrectAnswersEvent;
 import com.redgrue.pm.event.ShowStatisticsEvent;
+import com.redgrue.pm.fragments.ListenVoiceNumbFragment;
 import com.redgrue.pm.fragments.ShowDeckCardFragment;
 import com.redgrue.pm.fragments.StatisticsDrawerFragment;
 import com.redgrue.pm.fragments.UsersAnswersFragment;
@@ -64,6 +65,11 @@ public class StartMemoryActivity extends Activity {
             fragmentManager
                     .beginTransaction()
                     .add(R.id.containerStartMemoryActivity, new ShowDeckCardFragment(memoryAnswersContainer))
+                    .commit();
+        } else if(typeMemory.equals(MemoryAnswersContainer.TYPE_VOICE_NUMBS)) {
+            fragmentManager
+                    .beginTransaction()
+                    .add(R.id.containerStartMemoryActivity, new ListenVoiceNumbFragment())
                     .commit();
         } else {
             fragmentManager

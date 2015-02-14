@@ -3,26 +3,37 @@ package com.redgrue.pm.fragments;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
-import com.redgrue.pm.adapters.AdapterFillNumb;
+import com.redgrue.pm.adapters.NumbAnswerAdapter;
 import com.redgrue.pm.container.MemoryAnswersContainer;
 import com.redgrue.pm.event.ShowStatisticsEvent;
+import com.redgrue.pm.keyboards.BasicOnKeyboardActionListener;
+import com.redgrue.pm.keyboards.MemKeyboard;
 
 import java.util.ArrayList;
 
@@ -35,10 +46,15 @@ public class UsersAnswersFragment extends Fragment {
     private int maxAnswerSize;
     private ArrayList<String> usersAnswersArray;
     private final ArrayList<String> correctAnswersArray;
-    private AdapterFillNumb mAdapterFillNumb;
+    private NumbAnswerAdapter mAdapterFillNumb;
     private GridView usersAnswersGridView;
 
     private boolean isAnswerCompareCheck;
+
+    //Custom keyboard fields
+    private Keyboard mKeyboard;
+    private MemKeyboard mKeyboardView;
+
 
     public UsersAnswersFragment(MemoryAnswersContainer memoryAnswersContainer) {
 
@@ -65,7 +81,7 @@ public class UsersAnswersFragment extends Fragment {
         final EditText userAnswerEditText = (EditText) view.findViewById(R.id.usersAnswerEditText);
 
         usersAnswersGridView = (GridView) view.findViewById(R.id.AnswersGridView);
-        mAdapterFillNumb = new AdapterFillNumb(getActivity(), R.layout.view_schedule_answer, usersAnswersArray);
+        mAdapterFillNumb = new NumbAnswerAdapter(getActivity(), R.layout.view_schedule_answer, usersAnswersArray);
         usersAnswersGridView.setAdapter(mAdapterFillNumb);
         usersAnswersGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -88,6 +104,7 @@ public class UsersAnswersFragment extends Fragment {
 
         return view;
     }
+
 
 
     private boolean addAnswers(String answer) {

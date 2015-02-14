@@ -17,7 +17,7 @@
         <!--android:background="@drawable/selector_circle_change_numb" />-->
 
     <ImageView
-        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
         android:id="@+id/showCardView"
         android:layout_marginTop="18dp"
         android:layout_marginLeft="12dp"
@@ -25,7 +25,7 @@
         android:layout_marginBottom="12dp"
         android:scaleType="fitCenter"
         android:layout_width="match_parent"
-        android:layout_height="640dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/c2"/>
 
 

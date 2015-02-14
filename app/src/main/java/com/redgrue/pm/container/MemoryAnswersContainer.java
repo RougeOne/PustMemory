@@ -45,6 +45,10 @@ public class MemoryAnswersContainer implements Serializable {
                 randomCardsCollections(amountElements);
                 break;
             }
+            case TYPE_VOICE_NUMBS: {
+                randomTwoNumbCollections(amountElements);
+                break;
+            }
         }
     }
 

@@ -14,16 +14,16 @@ import java.util.ArrayList;
 /**
  * Created by rouge on 24.01.2015.
  */
-public class AdapterFillNumb extends ArrayAdapter<String> {
+public class NumbAnswerAdapter extends ArrayAdapter<String> {
 
-    private static final String Log_TAG = AdapterFillNumb.class.getSimpleName();
+    private static final String Log_TAG = NumbAnswerAdapter.class.getSimpleName();
     private final LayoutInflater mLayoutInflater;
     private final int mLayoutResId;
     private ArrayList<String> mCorrectAnswersArray;
     private ArrayList<String> mUserAnswersArray;
     private boolean checkResult = false;
 
-    public AdapterFillNumb(Context context, int resource, ArrayList<String> objects) {
+    public NumbAnswerAdapter(Context context, int resource, ArrayList<String> objects) {
         super(context, resource, objects);
         mLayoutInflater = LayoutInflater.from(context);
         mLayoutResId = resource;
