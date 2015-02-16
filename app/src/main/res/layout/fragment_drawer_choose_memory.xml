@@ -6,6 +6,7 @@
     android:background="@drawable/drawer_choose_memory">
 
     <ImageButton
+        android:contentDescription="start_memorize"
         android:id="@+id/MstartButton"
         android:layout_width="64dp"
         android:layout_height="64dp"

@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
-import com.redgrue.pm.event.ShowDistractExerciseEvent;
+import com.redgrue.pm.event.DistractExerciseEvent;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -71,7 +71,7 @@ public class DistractExerciseFragment extends Fragment {
 
                 Log.d(Log_TAG, "Answers " + checkExerciseAnswers(usersAnswers));
                 if (checkExerciseAnswers(usersAnswers))
-                    AppMnemoNet.getInstance().getBus().post(new ShowDistractExerciseEvent());
+                    AppMnemoNet.getInstance().getBus().post(new DistractExerciseEvent());
             }
         });
 
@@ -111,7 +111,7 @@ public class DistractExerciseFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.d(Log_TAG, "Cool it is working");
-        AppMnemoNet.getInstance().getBus().post(new ShowDistractExerciseEvent());
+        AppMnemoNet.getInstance().getBus().post(new DistractExerciseEvent());
         return super.onOptionsItemSelected(item);
     }
 

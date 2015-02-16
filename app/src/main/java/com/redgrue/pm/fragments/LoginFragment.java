@@ -42,23 +42,12 @@ public class LoginFragment extends Fragment {
         userNameEditView = (EditText) view.findViewById(R.id.userNameEditView);
         userPasswordEditView = (EditText) view.findViewById(R.id.passwordEditView);
 
-        userPasswordEditView.addTextChangedListener(new TextWatcher() {
+        view.findViewById(R.id.buttonEnterAsGuest).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
+            public void onClick(View v) {
+                AppMnemoNet.getInstance().getBus().post(new LoginEvent());
             }
         });
-
         view.findViewById(R.id.registerUserLogin).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +80,13 @@ public class LoginFragment extends Fragment {
             editor.apply();
             return true;
         }
+        return false;
+    }
+
+    private boolean loginOnSite() {
+
+
+
         return false;
     }
 

@@ -9,9 +9,9 @@ import android.view.Gravity;
 
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
-import com.redgrue.pm.event.ShowDistractExerciseEvent;
-import com.redgrue.pm.event.ShowCorrectAnswersEvent;
-import com.redgrue.pm.event.ShowStatisticsEvent;
+import com.redgrue.pm.event.DistractExerciseEvent;
+import com.redgrue.pm.event.CorrectAnswersEvent;
+import com.redgrue.pm.event.StatisticsEvent;
 import com.redgrue.pm.fragments.ListenVoiceNumbFragment;
 import com.redgrue.pm.fragments.ShowDeckCardFragment;
 import com.redgrue.pm.fragments.StatisticsDrawerFragment;
@@ -20,8 +20,6 @@ import com.redgrue.pm.fragments.DistractExerciseFragment;
 import com.redgrue.pm.fragments.ShowCorrectNumbFragment;
 import com.redgrue.pm.container.MemoryAnswersContainer;
 import com.squareup.otto.Subscribe;
-
-import java.util.ArrayList;
 
 /**
  * Created by rouge on 29.01.2015.
@@ -69,7 +67,7 @@ public class StartMemoryActivity extends Activity {
         } else if(typeMemory.equals(MemoryAnswersContainer.TYPE_VOICE_NUMBS)) {
             fragmentManager
                     .beginTransaction()
-                    .add(R.id.containerStartMemoryActivity, new ListenVoiceNumbFragment())
+                    .add(R.id.containerStartMemoryActivity, new ListenVoiceNumbFragment(memoryAnswersContainer))
                     .commit();
         } else {
             fragmentManager
@@ -95,7 +93,7 @@ public class StartMemoryActivity extends Activity {
     }
 
     @Subscribe
-    public void onShowCorrectAnswersEventListener(ShowCorrectAnswersEvent event) {
+    public void onShowCorrectAnswersEventListener(CorrectAnswersEvent event) {
         fragmentManager
                 .beginTransaction()
                 .replace(R.id.containerStartMemoryActivity, new DistractExerciseFragment())
@@ -104,7 +102,7 @@ public class StartMemoryActivity extends Activity {
     }
 
     @Subscribe
-    public void onDistractExerciseEventListener(ShowDistractExerciseEvent event) {
+    public void onDistractExerciseEventListener(DistractExerciseEvent event) {
             fragmentManager
                     .beginTransaction()
                     .replace(R.id.containerStartMemoryActivity, new UsersAnswersFragment(memoryAnswersContainer))
@@ -113,7 +111,7 @@ public class StartMemoryActivity extends Activity {
     }
 
     @Subscribe
-    public void onSetUserAnswerEventListener(ShowStatisticsEvent event) {
+    public void onSetUserAnswerEventListener(StatisticsEvent event) {
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
         mDrawerLayout.openDrawer(Gravity.END);
         mStatisticsDrawerFragment.fillUserStatisticsFields(memoryAnswersContainer);

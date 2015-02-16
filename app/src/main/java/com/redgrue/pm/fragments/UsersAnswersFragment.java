@@ -3,37 +3,27 @@ package com.redgrue.pm.fragments;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
 import com.redgrue.pm.adapters.NumbAnswerAdapter;
 import com.redgrue.pm.container.MemoryAnswersContainer;
-import com.redgrue.pm.event.ShowStatisticsEvent;
-import com.redgrue.pm.keyboards.BasicOnKeyboardActionListener;
-import com.redgrue.pm.keyboards.MemKeyboard;
+import com.redgrue.pm.event.StatisticsEvent;
 
 import java.util.ArrayList;
 
@@ -50,10 +40,6 @@ public class UsersAnswersFragment extends Fragment {
     private GridView usersAnswersGridView;
 
     private boolean isAnswerCompareCheck;
-
-    //Custom keyboard fields
-    private Keyboard mKeyboard;
-    private MemKeyboard mKeyboardView;
 
 
     public UsersAnswersFragment(MemoryAnswersContainer memoryAnswersContainer) {
@@ -79,9 +65,10 @@ public class UsersAnswersFragment extends Fragment {
         Log.w(Log_TAG, "onCreateView");
         final View view = inflater.inflate(R.layout.fragment_set_answers, container, false);
         final EditText userAnswerEditText = (EditText) view.findViewById(R.id.usersAnswerEditText);
+        final LinearLayout hideSetAnswer = (LinearLayout) view.findViewById(R.id.hideSetAnswersLayout);
 
-        usersAnswersGridView = (GridView) view.findViewById(R.id.AnswersGridView);
         mAdapterFillNumb = new NumbAnswerAdapter(getActivity(), R.layout.view_schedule_answer, usersAnswersArray);
+        usersAnswersGridView = (GridView) view.findViewById(R.id.AnswersGridView);
         usersAnswersGridView.setAdapter(mAdapterFillNumb);
         usersAnswersGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -97,25 +84,23 @@ public class UsersAnswersFragment extends Fragment {
                 if (TextUtils.isEmpty(usersAnswer))
                     usersAnswer = emptyAnswer;
                 userAnswerEditText.setText("");
-                addAnswers(usersAnswer);
+                if (addAnswers(usersAnswer)) ;
+                else
+                    Toast.makeText(getActivity(), "Нажмите проверка", Toast.LENGTH_LONG).show();
+
             }
         });
-
-
         return view;
     }
-
-
 
     private boolean addAnswers(String answer) {
         if (counter++ < correctAnswersArray.size()) {
             usersAnswersArray.add(answer);
             mAdapterFillNumb.notifyDataSetChanged();
-        } else {
-            Toast.makeText(getActivity(), "Нажмите проверка", Toast.LENGTH_LONG).show();
-            return false;
+            return true;
         }
-        return true;
+        return false;
+
     }
 
     private boolean changeUsersAnswer(int position, String correctedAnswer) {
@@ -126,10 +111,11 @@ public class UsersAnswersFragment extends Fragment {
         return true;
     }
 
-    private void isInterrupted() {
-        while (counter++ < correctAnswersArray.size()) {
-            usersAnswersArray.add(emptyAnswer);
-        }
+    private void setInterrupted() {
+        if (counter < maxAnswerSize)
+            while (counter++ < correctAnswersArray.size()) {
+                usersAnswersArray.add(emptyAnswer);
+            }
     }
 
     @Override
@@ -142,15 +128,17 @@ public class UsersAnswersFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case (R.id.actionCheckResult): {
-                if (counter < maxAnswerSize)
-                    isInterrupted();
-                mAdapterFillNumb.checkResults(correctAnswersArray, true);
-                isAnswerCompareCheck = true;
-                AppMnemoNet.getInstance().getBus().post(new ShowStatisticsEvent());
+                if(!isAnswerCompareCheck) {
+                    setInterrupted();
+                    mAdapterFillNumb.checkResults(correctAnswersArray, true);
+                    isAnswerCompareCheck = true;
+                    AppMnemoNet.getInstance().getBus().post(new StatisticsEvent());
+                }
                 break;
             }
             default: {
                 Log.e(Log_TAG, "default onOptionsItemSelected was implemented");
+                break;
             }
         }
         return super.onOptionsItemSelected(item);

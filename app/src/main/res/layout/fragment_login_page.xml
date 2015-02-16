@@ -4,6 +4,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/shape_gradient_logon">
 
+
+    <Button
+        android:id="@+id/buttonEnterAsGuest"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold"
+        android:text="Гость"
+        android:layout_margin="48dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/selector_circle_start_m"
+        android:layout_width="64dp"
+        android:layout_height="64dp" />
     <EditText
         android:id="@+id/userNameEditView"
         android:layout_width="168dp"

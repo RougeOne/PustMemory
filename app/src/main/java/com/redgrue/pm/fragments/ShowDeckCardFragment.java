@@ -1,7 +1,6 @@
 package com.redgrue.pm.fragments;
 
 import android.app.Fragment;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -14,7 +13,7 @@ import android.widget.RelativeLayout;
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
 import com.redgrue.pm.container.MemoryAnswersContainer;
-import com.redgrue.pm.event.ShowCorrectAnswersEvent;
+import com.redgrue.pm.event.CorrectAnswersEvent;
 
 import java.util.ArrayList;
 
@@ -94,7 +93,7 @@ public class ShowDeckCardFragment extends Fragment {
             cardView.setImageResource(cardsDeck.get(randomIndex));
             showTime = System.currentTimeMillis();
         } else
-            AppMnemoNet.getInstance().getBus().post(new ShowCorrectAnswersEvent());
+            AppMnemoNet.getInstance().getBus().post(new CorrectAnswersEvent());
     }
 
     private void changeBackgroundColor() {

@@ -1,41 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fb_blue_transparent"
     android:windowSoftInputMode="adjustUnspecified">
 
-    <Button
-        android:layout_centerHorizontal="true"
+    <LinearLayout
+        android:id="@+id/hideSetAnswersLayout"
         android:layout_alignParentBottom="true"
-        android:id="@+id/addUsersAnswer"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/selector_input_numb"
-        android:text="@string/set_answer_add_numb"
-        android:textColor="@color/fb_text_white"
-        android:textSize="20sp"/>
-    <EditText
-        android:padding="8dp"
-        android:background="@drawable/edit_view_user_answer"
-        android:layout_above="@+id/addUsersAnswer"
-        android:textSize="18sp"
-        android:textColorHint="@color/fb_text_edit_hint"
-        android:textColor="@color/fb_text_edit_text"
-        android:id="@+id/usersAnswerEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal|bottom"
-        android:hint="@string/set_answer_edit_numb"
-        android:inputType="number"
-        android:maxLength="3" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:background="@drawable/edit_view_user_answer"
+            android:textSize="18sp"
+            android:textColorHint="@color/fb_text_edit_hint"
+            android:textColor="@color/fb_text_edit_text"
+            android:id="@+id/usersAnswerEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal|bottom"
+            android:hint="@string/set_answer_edit_numb"
+            android:inputType="number"
+            android:maxLength="3" />
+        <Button
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/addUsersAnswer"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selector_input_numb"
+            android:text="@string/set_answer_add_numb"
+            android:textColor="@color/fb_text_white"
+            android:textSize="20sp"/>
+    </LinearLayout>
 
     <GridView
         android:id="@+id/AnswersGridView"
         android:layout_width="wrap_content"
         android:layout_height="128dp"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/usersAnswerEditText"
+        android:layout_above="@+id/hideSetAnswersLayout"
         android:columnWidth="80dp"
         android:gravity="center_horizontal"
         android:numColumns="auto_fit"

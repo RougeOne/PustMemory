@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.redgrue.pm.AppMnemoNet;
 import com.redgrue.pm.R;
 import com.redgrue.pm.container.MemoryAnswersContainer;
-import com.redgrue.pm.event.ShowCorrectAnswersEvent;
+import com.redgrue.pm.event.CorrectAnswersEvent;
 
 import java.util.ArrayList;
 
@@ -80,7 +80,7 @@ public class ShowCorrectNumbFragment extends Fragment {
             textView.setText(arrayCorrectAnswers.get(counter++));
             showTime = System.currentTimeMillis();
         } else
-            AppMnemoNet.getInstance().getBus().post(new ShowCorrectAnswersEvent());
+            AppMnemoNet.getInstance().getBus().post(new CorrectAnswersEvent());
 
         return true;
     }
